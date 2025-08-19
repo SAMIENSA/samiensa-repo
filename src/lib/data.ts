@@ -1,5 +1,5 @@
 import {
-  Cube,
+  Cuboid,
   Film,
   Clapperboard,
   Scissors,
@@ -15,7 +15,7 @@ import {
 import type { Skill, Experience, Project, ProjectCategory, PortfolioData, Language } from './types';
 
 export const skills: Skill[] = [
-  { name: '3D Modeling & Rendering (Blender)', icon: Cube },
+  { name: '3D Modeling & Rendering (Blender)', icon: Cuboid },
   { name: 'VFX (After Effects)', icon: Film },
   { name: 'Motion Graphics & Animation', icon: Clapperboard },
   { name: 'Video Editing (Premiere, DaVinci)', icon: Scissors },
