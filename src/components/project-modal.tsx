@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import type { Project } from "@/lib/types";
 import { useLanguage } from "@/hooks/use-language";
 import { portfolioData } from "@/lib/data";
@@ -23,6 +23,12 @@ export function ProjectModal({ isOpen, onOpenChange, project }: ProjectModalProp
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-4xl w-full p-0 border-0">
+        <DialogHeader>
+          <DialogTitle className="sr-only">{title}</DialogTitle>
+          <DialogDescription className="sr-only">
+            {project.type === 'video' ? `Video preview for ${title}` : `Image preview for ${title}`}
+          </DialogDescription>
+        </DialogHeader>
         {project.type === 'video' ? (
           <div className="aspect-video">
             <iframe
