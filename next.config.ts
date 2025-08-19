@@ -21,6 +21,12 @@ const nextConfig: NextConfig = {
         hostname: 'up6.cc',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'drive.google.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
