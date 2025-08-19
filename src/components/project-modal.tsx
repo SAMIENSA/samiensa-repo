@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import type { Project } from "@/lib/types";
 import { useLanguage } from "@/hooks/use-language";
 import { portfolioData } from "@/lib/data";
@@ -40,7 +40,7 @@ export function ProjectModal({ isOpen, onOpenChange, project }: ProjectModalProp
             ></iframe>
           </div>
         ) : (
-          <div className="relative w-full h-auto">
+          <div className="relative w-full h-auto max-h-[90vh]">
             <Image 
               src={project.url} 
               alt={title} 
