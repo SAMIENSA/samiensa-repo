@@ -164,7 +164,7 @@ export const projects: Project[] = [
     { id: 26, titleKey: "chicken_tikka_4", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1klUzCJy2Bk5I3guOFCHinP0DWbMo8rDZ", url: "https://lh3.googleusercontent.com/d/1klUzCJy2Bk5I3guOFCHinP0DWbMo8rDZ", type: 'photo', categories: ['posters-logos', 'ads'], aiHint: "grilled chicken" },
     { id: 27, titleKey: "chicken_tikka_5", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1lg-yh4JD0IPZUoQ8riqeJ17684Ly2YvQ", url: "https://lh3.googleusercontent.com/d/1lg-yh4JD0IPZUoQ8riqeJ17684Ly2YvQ", type: 'photo', categories: ['posters-logos', 'ads'], aiHint: "spicy dish" },
     { id: 28, titleKey: "business_card_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1Qf-cvetmSJ17nKzFmV68I5V583KHx2kC", url: "https://lh3.googleusercontent.com/d/1Qf-cvetmSJ17nKzFmV68I5V583KHx2kC", type: 'photo', categories: ['3d', 'branding'], aiHint: "business card" },
-    { id: 29, titleKey: "business_card_2", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1xqjpvNP7MtpJqB3QMgLoFLncma1DL065", url: "https://lh3.googleusercontent.com/d/1xqjpvNP7MtpJqB3QMgLoFLncma1DL065", type: 'photo', categories: ['3d', 'branding'], aiHint: "corporate identity" },
+    { id: 29, titleKey: "business_card_2", year: 2023, thumbnail: convertToPreviewUrl("1xqjpvNP7MtpJqB3QMgLoFLncma1DL065"), url: "https://drive.google.com/file/d/1xqjpvNP7MtpJqB3QMgLoFLncma1DL065/view?usp=drive_link", type: 'photo', categories: ['3d', 'branding'], aiHint: "corporate identity" },
     { id: 30, titleKey: "design_3d_3", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1U_kZi_IV-G2V89-xsfN8dmtSPGuBtZZA", url: "https://lh3.googleusercontent.com/d/1U_kZi_IV-G2V89-xsfN8dmtSPGuBtZZA", type: 'photo', categories: ['3d'], aiHint: "3d model" },
     { id: 31, titleKey: "design_3d_4", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1Bfdjc4j-drcZLNJMvdakze2uNXMURPl1", url: "https://lh3.googleusercontent.com/d/1Bfdjc4j-drcZLNJMvdakze2uNXMURPl1", type: 'photo', categories: ['3d'], aiHint: "abstract render" },
     { id: 32, titleKey: "design_3d_5", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1xCohqDFu2RVnPy1hI8xrRm4ogE16kys3", url: "https://lh3.googleusercontent.com/d/1xCohqDFu2RVnPy1hI8xrRm4ogE16kys3", type: 'photo', categories: ['3d'], aiHint: "product visualization" },
@@ -198,6 +198,7 @@ export const portfolioData: PortfolioData = {
       roles: ['Multimedia Artist', 'Creative Designer', '3D Animator'],
       bio: 'A passionate creator with a Computer Science background (AOU, 2023). I craft visually compelling content across 3D, VFX, motion graphics, and short-form edits—exploring AI tools to push ideas further.',
       cta: 'Download CV',
+      contact_cta: 'Get In Touch',
     },
     about: {
       title: 'About Me',
@@ -305,6 +306,7 @@ export const portfolioData: PortfolioData = {
       roles: ['فنان مالتي ميديا', 'مصمم كرييتف', 'أنيميتور 3D'],
       bio: 'مبدع شغوف بخلفية علوم حاسبات (الجامعة العربية المفتوحة 2023). بصمّم محتوى بصري قوي في 3D و VFX وموشن جرافيك وتحرير فيديوهات قصيرة، وبستكشف أدوات الذكاء الاصطناعي دايمًا عشان أرفع جودة الفكرة.',
       cta: 'تحميل السيرة الذاتية',
+      contact_cta: 'تواصل معي',
     },
     about: {
       title: 'عني',
@@ -419,5 +421,3 @@ export const folderLinks = {
   video: 'https://drive.google.com/drive/folders/1mExmp2nQB6KKFFDwRJjYCHLytyMLsISW?usp=sharing',
   photo: 'https://drive.google.com/drive/folders/1k9gRftLTzchLB6mZ3Aa3Y4odWYesCUg3?usp=sharing',
 }
-
-    

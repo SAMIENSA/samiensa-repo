@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "@/hooks/use-language";
 import { cvLink, portfolioData } from "@/lib/data";
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { Download, MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function HeroSection() {
@@ -38,12 +38,20 @@ export default function HeroSection() {
           <p className="text-lg text-muted-foreground max-w-xl mx-auto md:mx-0">
             {heroContent.bio}
           </p>
-          <Button size="lg" asChild>
-            <Link href={cvLink[language]} target="_blank" rel="noopener noreferrer">
-              <Download className="mr-2 h-5 w-5" />
-              {heroContent.cta}
-            </Link>
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <Button size="lg" asChild>
+              <Link href={cvLink[language]} target="_blank" rel="noopener noreferrer">
+                <Download className="mr-2 h-5 w-5" />
+                {heroContent.cta}
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link href="#contact">
+                <MessageSquare className="mr-2 h-5 w-5" />
+                {heroContent.contact_cta}
+              </Link>
+            </Button>
+          </div>
         </div>
         <div className="relative flex justify-center items-center">
             <div className="absolute w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-primary/20 blur-3xl"></div>
