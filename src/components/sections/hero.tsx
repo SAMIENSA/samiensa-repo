@@ -27,7 +27,7 @@ export default function HeroSection() {
         <div className="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-primary rounded-full filter blur-3xl animate-blob"></div>
         <div className="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-accent rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
       </div>
-      <div className="container relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[calc(100vh-4rem)] py-10 md:py-20">
+      <div className="container relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[calc(100vh-4rem)] py-10 md:py-20 px-4 md:px-0">
         <div className="space-y-6 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight">
             {heroContent.name}
