@@ -13,6 +13,8 @@ export default function HeroSection() {
   const { language } = useLanguage();
   const heroContent = portfolioData[language].hero;
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [primaryHsl, setPrimaryHsl] = useState("");
+  const [accentHsl, setAccentHsl] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,6 +22,16 @@ export default function HeroSection() {
     }, 2000);
     return () => clearInterval(interval);
   }, [heroContent.roles.length]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const computedStyle = getComputedStyle(document.documentElement);
+      const primary = computedStyle.getPropertyValue('--primary').trim();
+      const accent = computedStyle.getPropertyValue('--accent').trim();
+      setPrimaryHsl(primary);
+      setAccentHsl(accent);
+    }
+  }, []);
 
   return (
     <section className="relative overflow-hidden bg-background pt-10 md:pt-20">
@@ -29,18 +41,23 @@ export default function HeroSection() {
       </div>
       <div className="container relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] py-10 md:py-20 px-4 md:px-0 text-center">
         
-        <div className="relative mb-8">
-            <div className="absolute inset-0 w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 mx-auto bg-primary/20 rounded-full blur-3xl"></div>
-            <div className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 mx-auto rounded-full overflow-hidden shadow-2xl shadow-primary/30">
-            <Image
-                src="https://up6.cc/2025/08/175543874052991.jpg"
-                alt="Khaled Mohamed"
-                width={192}
-                height={192}
-                quality={100}
-                className="object-cover w-full h-full"
-                priority
-            />
+        <div className="relative mb-8 avatar-container">
+            <div 
+              className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 mx-auto rounded-full overflow-hidden shadow-2xl avatar-image-wrapper animated-glow"
+              style={{
+                ['--primary-hsl' as any]: primaryHsl,
+                ['--accent-hsl' as any]: accentHsl
+              }}
+            >
+              <Image
+                  src="https://up6.cc/2025/08/175543874052991.jpg"
+                  alt="Khaled Mohamed"
+                  width={192}
+                  height={192}
+                  quality={100}
+                  className="object-cover w-full h-full"
+                  priority
+              />
             </div>
         </div>
 

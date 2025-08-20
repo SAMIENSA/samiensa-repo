@@ -100,3 +100,26 @@
     @apply py-16 md:py-24;
   }
 }
+
+@layer utilities {
+  @keyframes avatar-glow {
+    0%, 100% {
+      box-shadow: 0 0 15px 5px rgba(var(--primary-hsl), 0.4), 0 0 5px 2px rgba(var(--accent-hsl), 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px 8px rgba(var(--primary-hsl), 0.3), 0 0 10px 4px rgba(var(--accent-hsl), 0.2);
+    }
+  }
+  .avatar-container {
+    perspective: 1000px;
+  }
+  .avatar-image-wrapper {
+    transition: transform 0.5s ease-out;
+  }
+  .avatar-container:hover .avatar-image-wrapper {
+    transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+  }
+  .animated-glow {
+    animation: avatar-glow 5s ease-in-out infinite;
+  }
+}
