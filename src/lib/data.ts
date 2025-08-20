@@ -25,14 +25,50 @@ export const skills: Skill[] = [
 
 export const experiences: { [key in Language]: Experience[] } = {
   en: [
-    { role: 'Advanced Multimedia Artist', period: '2022–Present' },
-    { role: 'Freelance Multimedia Artist', period: '2019–2022' },
-    { role: 'Creative Designer', period: '2016–2019' },
+    { 
+      role: 'Freelance Multimedia Artist', 
+      company: 'Self-employed',
+      period: '2019 – Present',
+      details: [
+        '3D models for product promotion (Blender)',
+        'Marketing motion graphics & unique VFX (After Effects)',
+        'Branding assets: logos, posters, menus, websites',
+        'Creative solutions leveraging AI tools (ComfyUI)',
+      ]
+    },
+    { 
+      role: 'Creative Designer (Online)', 
+      company: 'Remote/Online',
+      period: '2016 – Present',
+      details: [
+        'Promotional videos using Adobe Suite & Blender',
+        'Graphic design deliverables across campaigns',
+        'Short-form editing (Reels) in Premiere & DaVinci',
+      ]
+    },
   ],
   ar: [
-    { role: 'فنان ملتميديا متقدم', period: '2022–الآن' },
-    { role: 'فنان ملتميديا مستقل', period: '2019–2022' },
-    { role: 'مصمم مبدع', period: '2016–2019' },
+    { 
+      role: 'فنان ملتميديا مستقل', 
+      company: 'عمل حر',
+      period: '2019 – الآن',
+      details: [
+        'نماذج ثلاثية الأبعاد لترويج المنتجات (Blender)',
+        'رسوم متحركة تسويقية ومؤثرات بصرية فريدة (After Effects)',
+        'تصميم أصول العلامة التجارية: شعارات، ملصقات، قوائم، مواقع إلكترونية',
+        'حلول إبداعية باستخدام أدوات الذكاء الاصطناعي (ComfyUI)',
+      ]
+    },
+    { 
+      role: 'مصمم مبدع (أونلاين)', 
+      company: 'عن بعد/أونلاين',
+      period: '2016 – الآن',
+      details: [
+        'فيديوهات ترويجية باستخدام Adobe Suite و Blender',
+        'تسليمات تصميم جرافيك عبر الحملات',
+        'تحرير الفيديوهات القصيرة (Reels) في Premiere و DaVinci',
+      ]
+    },
   ],
 };
 
@@ -73,25 +109,25 @@ const convertToPreviewUrl = (url: string) => url.replace(/\/(view|edit)\?usp=.*$
 
 export const projects: Project[] = [
     // Videos
-    { id: 1, titleKey: "vfx_shot_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1vP4_SMB7zI5J9_B3H8p8G-z4o3zZ-t6Y", url: "https://drive.google.com/file/d/19muEbIFV5BjtB04u6ArbAtoCClamBNMp/preview", type: 'video', categories: ['vfx'], aiHint: "visual effects" },
-    { id: 2, titleKey: "vfx_shot_2", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1w8S-5b7N-E4d-A9X-S8c_x_c-a3A_c-A", url: "https://drive.google.com/file/d/1dMb2M1--DAw9B090AzRajKbI-Mw3HGdk/preview", type: 'video', categories: ['vfx'], aiHint: "abstract explosion" },
-    { id: 3, titleKey: "vfx_shot_3", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1xS6J-s_s-C_x-X_x-S_s-A_s-S_s-S_s", url: "https://drive.google.com/file/d/14gB9KMJZ-eGu_6ysH2vhnlCQLGn1Wq8W/preview", type: 'video', categories: ['vfx'], aiHint: "digital particles" },
-    { id: 4, titleKey: "vfx_shot_4", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1yS-x_S_x-C_x-S_s-A_s-S_s-S_s-S_s-A", url: "https://drive.google.com/file/d/1QPawUaIvJtvmCWSbbnUAxnl1qry7tEk_/preview", type: 'video', categories: ['vfx'], aiHint: "glowing energy" },
-    { id: 5, titleKey: "vfx_shot_5", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1zS-x_S_x-C_x-S_s-A_s-S_s-S_s-S_s-B", url: "https://drive.google.com/file/d/1ntNcZZVeF81a5ihBcg7MZq3kXr3oydtj/preview", type: 'video', categories: ['vfx'], aiHint: "sci-fi interface" },
-    { id: 6, titleKey: "character_animation", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1-J8b2p-K3x_9V9n_xVvA5y3G7N8tW1wB", url: "https://drive.google.com/file/d/1Ml5vpC_Y4sOENa5hcqg8PLn2m6ynFqck/preview", type: 'video', categories: ['animation', '3d'], aiHint: "character animation" },
-    { id: 7, titleKey: "kitchen_store_ad", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1-n7X5n-n_K5v7gG9a_b9v5f_c5E8dC9o", url: "https://drive.google.com/file/d/1qCJPJhFhLtaD37DcVOltbk4MGqw7g-fv/preview", type: 'video', categories: ['ads'], aiHint: "modern kitchen" },
-    { id: 8, titleKey: "clothing_store_ad_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1-d_8H9f_gV-u_h5hT_r_x_C5f_yT6rWf", url: "https://drive.google.com/file/d/1vyyRnUbv-NjazQKDQm5Yo8T1n120AlI7/preview", type: 'video', categories: ['ads'], aiHint: "fashion promo" },
-    { id: 9, titleKey: "clothing_store_ad_2", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1-J_Y4o_6T-J_qZ-m_xZ_n_r3s_W-y5zF", url: "https://drive.google.com/file/d/10-EQ6B2EUtSUCJIIW8kwE59NTKYY0BRJ/preview", type: 'video', categories: ['ads'], aiHint: "urban streetwear" },
-    { id: 10, titleKey: "barber_shop_ad", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1-O_G1H-t_b-5P-n_y_t_xZ-y_g_F_x_C", url: "https://drive.google.com/file/d/1KcRvN-IEPXDveio6cGg8H_d77H6HWMIM/preview", type: 'video', categories: ['ads'], aiHint: "barber shop" },
-    { id: 11, titleKey: "travel_ad", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1-T_x_y-z_A-V_z_x_y_C_b-D_e_f_G_H", url: "https://drive.google.com/file/d/1TJui42ytzlhUOEKH3JukoQpYWZQnGb9Y/preview", type: 'video', categories: ['ads'], aiHint: "travel montage" },
-    { id: 12, titleKey: "logo_intro_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1-z_x_y_C-D_e_f_g_H-I_J_k_L_M_n_O", url: "https://drive.google.com/file/d/1l_HIN39_GkydzVy0f0VWlB5ueJKDo5yD/preview", type: 'video', categories: ['logo-intros', 'animation'], aiHint: "logo animation" },
-    { id: 13, titleKey: "logo_intro_2", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1_A_B_c-D_e_F_g_H-i_j_k_L_m_N_o_P", url: "https://drive.google.com/file/d/1L05EJb1ydx1f7kXzmGZkdnrS_QRFB4wW/preview", type: 'video', categories: ['logo-intros', 'animation'], aiHint: "corporate logo" },
-    { id: 14, titleKey: "logo_intro_3", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1_b_C_d-E_f_g_h_i_J_k_l_M_n_O_p_Q", url: "https://drive.google.com/file/d/1d-pD6Mms0BSSbjg-rpqp3eUo4ZVP2Mrx/preview", type: 'video', categories: ['logo-intros', 'animation'], aiHint: "tech logo" },
-    { id: 15, titleKey: "gaming_pubg_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1_c_D_e_F_g_H_i_J_k_L_m_N_o_P_q_R", url: "https://drive.google.com/file/d/1DAEejv9vUo8_nCG_FIjuI0PLAVh__rYE/preview", type: 'video', categories: ['gaming'], aiHint: "gaming highlights" },
-    { id: 16, titleKey: "gaming_pubg_2", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1_d_E_f_G_h_I_j_K_l_M_n_O_p_Q_r_S", url: "https://drive.google.com/file/d/13RrNwu-vjPLpZY65LpKgmFF31j75SLxB/preview", type: 'video', categories: ['gaming'], aiHint: "action gameplay" },
-    { id: 17, titleKey: "gaming_pubg_3", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1_e_F_g_H_i_J_k_L_m_N_o_P_q_R_s_T", url: "https://drive.google.com/file/d/1pVDLIV-pYE5BglrYHCES2Xz70ls1Hjlv/preview", type: 'video', categories: ['gaming'], aiHint: "esports montage" },
-    { id: 18, titleKey: "gaming_pubg_4", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1_f_G_h_I_j_K_l_M_n_O_p_Q_r_S_t_U", url: "https://drive.google.com/file/d/1qibucVsbd_pkT67bV7rUMDQ8cyd9ZF1H/preview", type: 'video', categories: ['gaming'], aiHint: "first person" },
-    { id: 19, titleKey: "gaming_pubg_5", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1_g_H_i_J_k_L_m_N_o_P_q_R_s_T_u_V", url: "https://drive.google.com/file/d/15C8pGC1qX8XclZj2CjM5r6k0Ap1cEz21/preview", type: 'video', categories: ['gaming'], aiHint: "game battle" },
+    { id: 1, titleKey: "vfx_shot_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/19pM8m4eXG2i2i2IqF-aT1sZpGkP5o6nO", url: "https://drive.google.com/file/d/19muEbIFV5BjtB04u6ArbAtoCClamBNMp/preview", type: 'video', categories: ['vfx'], aiHint: "visual effects" },
+    { id: 2, titleKey: "vfx_shot_2", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1d1Tz-3bL2qF0X8bZqZ3o2P9r8L2b8V7n", url: "https://drive.google.com/file/d/1dMb2M1--DAw9B090AzRajKbI-Mw3HGdk/preview", type: 'video', categories: ['vfx'], aiHint: "abstract explosion" },
+    { id: 3, titleKey: "vfx_shot_3", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/14x_4iQ-hB3m9v4Z-hH8w5f9aG2r8X8sY", url: "https://drive.google.com/file/d/14gB9KMJZ-eGu_6ysH2vhnlCQLGn1Wq8W/preview", type: 'video', categories: ['vfx'], aiHint: "digital particles" },
+    { id: 4, titleKey: "vfx_shot_4", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1Q-y8B-c4v3U0o3W-rR3k2U3m4L5aQ9cE", url: "https://drive.google.com/file/d/1QPawUaIvJtvmCWSbbnUAxnl1qry7tEk_/preview", type: 'video', categories: ['vfx'], aiHint: "glowing energy" },
+    { id: 5, titleKey: "vfx_shot_5", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1o5sX-p4e1o7U-f9W-kY9r8k3P3Z5n1zQ", url: "https://drive.google.com/file/d/1ntNcZZVeF81a5ihBcg7MZq3kXr3oydtj/preview", type: 'video', categories: ['vfx'], aiHint: "sci-fi interface" },
+    { id: 6, titleKey: "character_animation", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1M-9g-C_6o_R8v_Y-qX3r_K_o_N_q_W_g", url: "https://drive.google.com/file/d/1Ml5vpC_Y4sOENa5hcqg8PLn2m6ynFqck/preview", type: 'video', categories: ['animation', '3d'], aiHint: "character animation" },
+    { id: 7, titleKey: "kitchen_store_ad", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1q-m7h-R_8o_V_k_a_G_x_W_c_G_o_X_k", url: "https://drive.google.com/file/d/1qCJPJhFhLtaD37DcVOltbk4MGqw7g-fv/preview", type: 'video', categories: ['ads'], aiHint: "modern kitchen" },
+    { id: 8, titleKey: "clothing_store_ad_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1v-z_T_k_L_h_P_o_Q_u_X_y_I_r_E_v_K", url: "https://drive.google.com/file/d/1vyyRnUbv-NjazQKDQm5Yo8T1n120AlI7/preview", type: 'video', categories: ['ads'], aiHint: "fashion promo" },
+    { id: 9, titleKey: "clothing_store_ad_2", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/10_E_Q_b_W_k_e_X_m_W_y_T_n_Z_w_A_h", url: "https://drive.google.com/file/d/10-EQ6B2EUtSUCJIIW8kwE59NTKYY0BRJ/preview", type: 'video', categories: ['ads'], aiHint: "urban streetwear" },
+    { id: 10, titleKey: "barber_shop_ad", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1K-r_N_i_E_p_D_v_e_i_o_c_G_g_H_w_I", url: "https://drive.google.com/file/d/1KcRvN-IEPXDveio6cGg8H_d77H6HWMIM/preview", type: 'video', categories: ['ads'], aiHint: "barber shop" },
+    { id: 11, titleKey: "travel_ad", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1T-u_h_Y_k_o_Q_p_Y_w_Z_q_N_g_B_y_L", url: "https://drive.google.com/file/d/1TJui42ytzlhUOEKH3JukoQpYWZQnGb9Y/preview", type: 'video', categories: ['ads'], aiHint: "travel montage" },
+    { id: 12, titleKey: "logo_intro_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1l_H_i_N_3_G_k_y_D_z_V_y_L_b_J_k_D", url: "https://drive.google.com/file/d/1l_HIN39_GkydzVy0f0VWlB5ueJKDo5yD/preview", type: 'video', categories: ['logo-intros', 'animation'], aiHint: "logo animation" },
+    { id: 13, titleKey: "logo_intro_2", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1L_0_E_j_B_1_y_d_x_1_f_k_X_z_m_G_Z", url: "https://drive.google.com/file/d/1L05EJb1ydx1f7kXzmGZkdnrS_QRFB4wW/preview", type: 'video', categories: ['logo-intros', 'animation'], aiHint: "corporate logo" },
+    { id: 14, titleKey: "logo_intro_3", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1d_p_D_6_m_s_0_B_S_s_b_j_g_r_p_q_p", url: "https://drive.google.com/file/d/1d-pD6Mms0BSSbjg-rpqp3eUo4ZVP2Mrx/preview", type: 'video', categories: ['logo-intros', 'animation'], aiHint: "tech logo" },
+    { id: 15, titleKey: "gaming_pubg_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1D_A_e_e_j_v_9_U_o_8_n_C_G_f_i_j", url: "https://drive.google.com/file/d/1DAEejv9vUo8_nCG_FIjuI0PLAVh__rYE/preview", type: 'video', categories: ['gaming'], aiHint: "gaming highlights" },
+    { id: 16, titleKey: "gaming_pubg_2", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/13_R_r_N_w_u_v_j_P_l_p_Z_y_6_5_L_p", url: "https://drive.google.com/file/d/13RrNwu-vjPLpZY65LpKgmFF31j75SLxB/preview", type: 'video', categories: ['gaming'], aiHint: "action gameplay" },
+    { id: 17, titleKey: "gaming_pubg_3", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1p_V_d_L_i_V_p_Y_e_5_B_g_l_r_Y_h_C", url: "https://drive.google.com/file/d/1pVDLIV-pYE5BglrYHCES2Xz70ls1Hjlv/preview", type: 'video', categories: ['gaming'], aiHint: "esports montage" },
+    { id: 18, titleKey: "gaming_pubg_4", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1q_i_b_u_c_V_s_b_d_p_k_T_6_7_b_V", url: "https://drive.google.com/file/d/1qibucVsbd_pkT67bV7rUMDQ8cyd9ZF1H/preview", type: 'video', categories: ['gaming'], aiHint: "first person" },
+    { id: 19, titleKey: "gaming_pubg_5", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/15_C_8_p_G_C_1_q_X_8_X_c_l_Z_j_2_C", url: "https://drive.google.com/file/d/15C8pGC1qX8XclZj2CjM5r6k0Ap1cEz21/preview", type: 'video', categories: ['gaming'], aiHint: "game battle" },
     
     // Photos
     { id: 20, titleKey: "lg_ad_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1nS2ekNFTbKJ4Cn--j8yd3d7Rl75sKiKN", url: "https://lh3.googleusercontent.com/d/1nS2ekNFTbKJ4Cn--j8yd3d7Rl75sKiKN", type: 'photo', categories: ['product-ads'], aiHint: "product advertisement" },
@@ -102,8 +138,8 @@ export const projects: Project[] = [
     { id: 25, titleKey: "chicken_tikka_3", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1-XqxkwjJdBgPwWImof3WPIIxJZxqW4WQ", url: "https://lh3.googleusercontent.com/d/1-XqxkwjJdBgPwWImof3WPIIxJZxqW4WQ", type: 'photo', categories: ['posters-logos', 'ads'], aiHint: "delicious food" },
     { id: 26, titleKey: "chicken_tikka_4", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1klUzCJy2Bk5I3guOFCHinP0DWbMo8rDZ", url: "https://lh3.googleusercontent.com/d/1klUzCJy2Bk5I3guOFCHinP0DWbMo8rDZ", type: 'photo', categories: ['posters-logos', 'ads'], aiHint: "grilled chicken" },
     { id: 27, titleKey: "chicken_tikka_5", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1lg-yh4JD0IPZUoQ8riqeJ17684Ly2YvQ", url: "https://lh3.googleusercontent.com/d/1lg-yh4JD0IPZUoQ8riqeJ17684Ly2YvQ", type: 'photo', categories: ['posters-logos', 'ads'], aiHint: "spicy dish" },
-    { id: 28, titleKey: "business_card_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/172PJ1JgO1HnBcH9T-nLp_1_M0Q4i_xYd", url: "https://lh3.googleusercontent.com/d/172PJ1JgO1HnBcH9T-nLp_1_M0Q4i_xYd", type: 'photo', categories: ['3d', 'branding'], aiHint: "business card" },
-    { id: 29, titleKey: "business_card_2", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1Qf-cvetmSJ17nKzFmV68I5V583KHx2kC", url: "https://lh3.googleusercontent.com/d/1Qf-cvetmSJ17nKzFmV68I5V583KHx2kC", type: 'photo', categories: ['3d', 'branding'], aiHint: "corporate identity" },
+    { id: 28, titleKey: "business_card_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1Qf-cvetmSJ17nKzFmV68I5V583KHx2kC", url: "https://lh3.googleusercontent.com/d/1Qf-cvetmSJ17nKzFmV68I5V583KHx2kC", type: 'photo', categories: ['3d', 'branding'], aiHint: "business card" },
+    { id: 29, titleKey: "business_card_2", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/172PJ1JgO1HnBcH9T-nLp_1_M0Q4i_xYd", url: "https://lh3.googleusercontent.com/d/172PJ1JgO1HnBcH9T-nLp_1_M0Q4i_xYd", type: 'photo', categories: ['3d', 'branding'], aiHint: "corporate identity" },
     { id: 30, titleKey: "design_3d_3", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1U_kZi_IV-G2V89-xsfN8dmtSPGuBtZZA", url: "https://lh3.googleusercontent.com/d/1U_kZi_IV-G2V89-xsfN8dmtSPGuBtZZA", type: 'photo', categories: ['3d'], aiHint: "3d model" },
     { id: 31, titleKey: "design_3d_4", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1Bfdjc4j-drcZLNJMvdakze2uNXMURPl1", url: "https://lh3.googleusercontent.com/d/1Bfdjc4j-drcZLNJMvdakze2uNXMURPl1", type: 'photo', categories: ['3d'], aiHint: "abstract render" },
     { id: 32, titleKey: "design_3d_5", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1xCohqDFu2RVnPy1hI8xrRm4ogE16kys3", url: "https://lh3.googleusercontent.com/d/1xCohqDFu2RVnPy1hI8xrRm4ogE16kys3", type: 'photo', categories: ['3d'], aiHint: "product visualization" },

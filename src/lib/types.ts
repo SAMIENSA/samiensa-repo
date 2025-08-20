@@ -10,7 +10,9 @@ export interface Skill {
 
 export interface Experience {
   role: string;
+  company: string;
   period: string;
+  details: string[];
 }
 
 export interface Project {
