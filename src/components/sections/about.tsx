@@ -16,7 +16,7 @@ export default function AboutSection() {
         <p className="max-w-3xl mx-auto text-lg text-muted-foreground mb-12">
           {aboutContent.bio}
         </p>
-        <div className="inline-flex items-center gap-3 rounded-lg bg-card p-4 border shadow-sm">
+        <div className="inline-flex items-center gap-3 rounded-lg bg-card p-4 border shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1">
             <GraduationCap className="h-8 w-8 text-primary"/>
             <div className="text-left">
                 <p className="font-semibold font-headline">{aboutContent.educationTitle}</p>
