@@ -15,13 +15,13 @@ import {
 import type { Skill, Experience, Project, ProjectCategory, PortfolioData, Language } from './types';
 
 export const skills: Skill[] = [
-  { name: '3D Modeling & Rendering (Blender)', icon: Cuboid },
-  { name: 'VFX (After Effects)', icon: Film },
-  { name: 'Motion Graphics & Animation', icon: Clapperboard },
-  { name: 'Video Editing (Premiere, DaVinci)', icon: Scissors },
-  { name: 'Branding & Graphic Design', icon: PenTool },
-  { name: 'AI Tools (ComfyUI)', icon: BrainCircuit },
-];
+    { name: '3D Modeling & Rendering (Blender)', descriptionKey: 'blender_desc', icon: Cuboid },
+    { name: 'Visual Effects (After Effects)', descriptionKey: 'vfx_desc', icon: Film },
+    { name: 'Motion Graphics & Animation', descriptionKey: 'motion_desc', icon: Clapperboard },
+    { name: 'Video Editing (Premiere, DaVinci)', descriptionKey: 'editing_desc', icon: Scissors },
+    { name: 'Branding & Graphic Design', descriptionKey: 'branding_desc', icon: PenTool },
+    { name: 'AI Tools (ComfyUI)', descriptionKey: 'ai_desc', icon: BrainCircuit },
+  ];
 
 export const experiences: { [key in Language]: Experience[] } = {
   en: [
@@ -73,11 +73,11 @@ const convertToPreviewUrl = (url: string) => url.replace(/\/(view|edit)\?usp=.*$
 
 export const projects: Project[] = [
     // Videos
-    { id: 1, titleKey: "vfx_shot_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1Xpr_K2Zx6tP6-4i2iWcz5pZ_iOaDqA4g", url: "https://drive.google.com/file/d/19muEbIFV5BjtB04u6ArbAtoCClamBNMp/preview", type: 'video', categories: ['vfx'], aiHint: "visual effects" },
-    { id: 2, titleKey: "vfx_shot_2", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1gQv2o9kQ6z_8M4Yk4p4FzP_wF-rZJg2m", url: "https://drive.google.com/file/d/1dMb2M1--DAw9B090AzRajKbI-Mw3HGdk/preview", type: 'video', categories: ['vfx'], aiHint: "abstract explosion" },
-    { id: 3, titleKey: "vfx_shot_3", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1f-C-B9g9v-gZ_a3wW1o-o-hRk5y5nQeU", url: "https://drive.google.com/file/d/14gB9KMJZ-eGu_6ysH2vhnlCQLGn1Wq8W/preview", type: 'video', categories: ['vfx'], aiHint: "digital particles" },
-    { id: 4, titleKey: "vfx_shot_4", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1hW7p_2b9b_4K8z4N-5r_z0a7N3E9X4bV", url: "https://drive.google.com/file/d/1QPawUaIvJtvmCWSbbnUAxnl1qry7tEk_/preview", type: 'video', categories: ['vfx'], aiHint: "glowing energy" },
-    { id: 5, titleKey: "vfx_shot_5", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1k-2cW9x_t9wV9f_zZc9M9d-zP9D4rF_T", url: "https://drive.google.com/file/d/1ntNcZZVeF81a5ihBcg7MZq3kXr3oydtj/preview", type: 'video', categories: ['vfx'], aiHint: "sci-fi interface" },
+    { id: 1, titleKey: "vfx_shot_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1vP4_SMB7zI5J9_B3H8p8G-z4o3zZ-t6Y", url: "https://drive.google.com/file/d/19muEbIFV5BjtB04u6ArbAtoCClamBNMp/preview", type: 'video', categories: ['vfx'], aiHint: "visual effects" },
+    { id: 2, titleKey: "vfx_shot_2", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1w8S-5b7N-E4d-A9X-S8c_x_c-a3A_c-A", url: "https://drive.google.com/file/d/1dMb2M1--DAw9B090AzRajKbI-Mw3HGdk/preview", type: 'video', categories: ['vfx'], aiHint: "abstract explosion" },
+    { id: 3, titleKey: "vfx_shot_3", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1xS6J-s_s-C_x-X_x-S_s-A_s-S_s-S_s", url: "https://drive.google.com/file/d/14gB9KMJZ-eGu_6ysH2vhnlCQLGn1Wq8W/preview", type: 'video', categories: ['vfx'], aiHint: "digital particles" },
+    { id: 4, titleKey: "vfx_shot_4", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1yS-x_S_x-C_x-S_s-A_s-S_s-S_s-S_s-A", url: "https://drive.google.com/file/d/1QPawUaIvJtvmCWSbbnUAxnl1qry7tEk_/preview", type: 'video', categories: ['vfx'], aiHint: "glowing energy" },
+    { id: 5, titleKey: "vfx_shot_5", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1zS-x_S_x-C_x-S_s-A_s-S_s-S_s-S_s-B", url: "https://drive.google.com/file/d/1ntNcZZVeF81a5ihBcg7MZq3kXr3oydtj/preview", type: 'video', categories: ['vfx'], aiHint: "sci-fi interface" },
     { id: 6, titleKey: "character_animation", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1-J8b2p-K3x_9V9n_xVvA5y3G7N8tW1wB", url: "https://drive.google.com/file/d/1Ml5vpC_Y4sOENa5hcqg8PLn2m6ynFqck/preview", type: 'video', categories: ['animation', '3d'], aiHint: "character animation" },
     { id: 7, titleKey: "kitchen_store_ad", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1-n7X5n-n_K5v7gG9a_b9v5f_c5E8dC9o", url: "https://drive.google.com/file/d/1qCJPJhFhLtaD37DcVOltbk4MGqw7g-fv/preview", type: 'video', categories: ['ads'], aiHint: "modern kitchen" },
     { id: 8, titleKey: "clothing_store_ad_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1-d_8H9f_gV-u_h5hT_r_x_C5f_yT6rWf", url: "https://drive.google.com/file/d/1vyyRnUbv-NjazQKDQm5Yo8T1n120AlI7/preview", type: 'video', categories: ['ads'], aiHint: "fashion promo" },
@@ -102,7 +102,7 @@ export const projects: Project[] = [
     { id: 25, titleKey: "chicken_tikka_3", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1-XqxkwjJdBgPwWImof3WPIIxJZxqW4WQ", url: "https://lh3.googleusercontent.com/d/1-XqxkwjJdBgPwWImof3WPIIxJZxqW4WQ", type: 'photo', categories: ['posters-logos', 'ads'], aiHint: "delicious food" },
     { id: 26, titleKey: "chicken_tikka_4", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1klUzCJy2Bk5I3guOFCHinP0DWbMo8rDZ", url: "https://lh3.googleusercontent.com/d/1klUzCJy2Bk5I3guOFCHinP0DWbMo8rDZ", type: 'photo', categories: ['posters-logos', 'ads'], aiHint: "grilled chicken" },
     { id: 27, titleKey: "chicken_tikka_5", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1lg-yh4JD0IPZUoQ8riqeJ17684Ly2YvQ", url: "https://lh3.googleusercontent.com/d/1lg-yh4JD0IPZUoQ8riqeJ17684Ly2YvQ", type: 'photo', categories: ['posters-logos', 'ads'], aiHint: "spicy dish" },
-    { id: 28, titleKey: "business_card_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1Z_u-Hq_hQ2u-gY_9j8e_1u8y7Y5Wz4P5", url: "https://lh3.googleusercontent.com/d/1Z_u-Hq_hQ2u-gY_9j8e_1u8y7Y5Wz4P5", type: 'photo', categories: ['3d', 'branding'], aiHint: "business card" },
+    { id: 28, titleKey: "business_card_1", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/172PJ1JgO1HnBcH9T-nLp_1_M0Q4i_xYd", url: "https://lh3.googleusercontent.com/d/172PJ1JgO1HnBcH9T-nLp_1_M0Q4i_xYd", type: 'photo', categories: ['3d', 'branding'], aiHint: "business card" },
     { id: 29, titleKey: "business_card_2", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1Qf-cvetmSJ17nKzFmV68I5V583KHx2kC", url: "https://lh3.googleusercontent.com/d/1Qf-cvetmSJ17nKzFmV68I5V583KHx2kC", type: 'photo', categories: ['3d', 'branding'], aiHint: "corporate identity" },
     { id: 30, titleKey: "design_3d_3", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1U_kZi_IV-G2V89-xsfN8dmtSPGuBtZZA", url: "https://lh3.googleusercontent.com/d/1U_kZi_IV-G2V89-xsfN8dmtSPGuBtZZA", type: 'photo', categories: ['3d'], aiHint: "3d model" },
     { id: 31, titleKey: "design_3d_4", year: 2023, thumbnail: "https://lh3.googleusercontent.com/d/1Bfdjc4j-drcZLNJMvdakze2uNXMURPl1", url: "https://lh3.googleusercontent.com/d/1Bfdjc4j-drcZLNJMvdakze2uNXMURPl1", type: 'photo', categories: ['3d'], aiHint: "abstract render" },
@@ -147,8 +147,16 @@ export const portfolioData: PortfolioData = {
       education: 'College of Technology & Information – Computer Science, AOU, 2023.',
     },
     skills: {
-      title: 'Skills',
-    },
+        title: 'Skills',
+        descriptions: {
+          blender_desc: 'Creating stunning 3D models and photorealistic renders',
+          vfx_desc: 'Professional VFX and compositing',
+          motion_desc: 'Dynamic motion graphics and character animation',
+          editing_desc: 'Professional video editing and color grading',
+          branding_desc: 'Complete branding solutions and graphic design',
+          ai_desc: 'Leveraging AI for enhanced creative workflows',
+        },
+      },
     experience: {
       title: 'Experience',
     },
@@ -247,8 +255,16 @@ export const portfolioData: PortfolioData = {
       education: 'كلية التقنية والمعلومات – علوم الحاسب، الجامعة العربية المفتوحة، 2023.',
     },
     skills: {
-      title: 'المهارات',
-    },
+        title: 'المهارات',
+        descriptions: {
+          blender_desc: 'إنشاء نماذج ثلاثية الأبعاد مذهلة وعروض واقعية',
+          vfx_desc: 'مؤثرات بصرية احترافية وتركيب',
+          motion_desc: 'رسوم متحركة ديناميكية وتحريك شخصيات',
+          editing_desc: 'مونتاج وتصحيح ألوان احترافي للفيديو',
+          branding_desc: 'حلول علامات تجارية كاملة وتصميم جرافيك',
+          ai_desc: 'استخدام الذكاء الاصطناعي لتعزيز عمليات الإبداع',
+        },
+      },
     experience: {
       title: 'الخبرة',
     },
@@ -345,6 +361,3 @@ export const folderLinks = {
   video: 'https://drive.google.com/drive/folders/1mExmp2nQB6KKFFDwRJjYCHLytyMLsISW?usp=sharing',
   photo: 'https://drive.google.com/drive/folders/1k9gRftLTzchLB6mZ3Aa3Y4odWYesCUg3?usp=sharing',
 }
-
-
-

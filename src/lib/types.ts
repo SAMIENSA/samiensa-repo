@@ -4,6 +4,7 @@ export type Language = 'en' | 'ar';
 
 export interface Skill {
   name: string;
+  descriptionKey: string;
   icon: LucideIcon;
 }
 
