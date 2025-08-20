@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/hooks/use-language";
 import { experiences, portfolioData } from "@/lib/data";
-import { CheckCircle } from "lucide-react";
+import { Briefcase, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function ExperienceSection() {
@@ -11,7 +11,7 @@ export default function ExperienceSection() {
   const experienceList = experiences[language];
 
   return (
-    <section id="experience" className="py-16 md:py-24">
+    <section id="experience" className="bg-muted/30 dark:bg-muted/10">
       <div className="container">
         <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-headline mb-4 relative inline-block">
@@ -20,47 +20,48 @@ export default function ExperienceSection() {
             </h2>
         </div>
 
-        <div className="relative max-w-3xl mx-auto">
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-primary/50 to-primary/10"></div>
+        <div className="relative max-w-5xl mx-auto">
+          <div 
+            className="absolute h-full w-0.5 bg-border -translate-x-1/2"
+            style={{ left: direction === 'rtl' ? 'calc(100% - 1.5rem)' : '1.5rem' }}
+          ></div>
+
           {experienceList.map((exp, index) => (
             <div 
               key={index} 
-              className={cn(
-                "relative mb-12 flex items-start w-full",
-                index % 2 === 0 ? "justify-start" : "justify-end",
-                direction === "rtl" && (index % 2 !== 0 ? "justify-start" : "justify-end")
-              )}
+              className="relative pl-12 pr-4 md:pr-0 mb-12"
+              style={direction === 'rtl' ? { paddingRight: '3rem', paddingLeft: '1rem' } : { paddingLeft: '3rem' }}
             >
               <div 
                 className={cn(
-                  "absolute left-1/2 -translate-x-1/2 z-10 flex items-center justify-center w-4 h-4 bg-primary rounded-full ring-8 ring-background",
-                  "top-1"
+                  "absolute z-10 flex items-center justify-center w-12 h-12 bg-primary rounded-full ring-8 ring-muted/30 dark:ring-muted/10",
+                  "top-0 -translate-x-1/2"
                 )}
-              />
+                style={{ left: direction === 'rtl' ? 'calc(100% - 1.5rem)' : '1.5rem' }}
+              >
+                  <Briefcase className="h-6 w-6 text-primary-foreground"/>
+              </div>
 
               <div 
                 className={cn(
-                  "w-[calc(50%-2rem)]",
-                  index % 2 === 0 ? (direction === "rtl" ? "mr-auto" : "ml-auto") : (direction === "rtl" ? "ml-auto" : "mr-auto")
+                  "bg-card border border-border/50 rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/40 hover:-translate-y-1",
+                  "ml-4 md:ml-0"
                 )}
+                 style={direction === 'rtl' ? { marginRight: '1rem' } : { marginLeft: '0' }}
               >
-                <div 
-                  className={cn(
-                    "bg-card/80 backdrop-blur-sm border border-border/20 rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/40",
-                    index % 2 === 0 ? (direction === 'rtl' ? "text-right" : "text-left") : (direction === 'rtl' ? "text-left" : "text-right")
-                  )}
-                >
-                  <h3 className="font-headline text-lg font-bold text-primary">{exp.role}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{exp.company} • {exp.period}</p>
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                    <h3 className="font-headline text-xl font-bold text-primary">{exp.role}</h3>
+                    <p className="text-sm font-semibold text-muted-foreground bg-primary/10 px-3 py-1 rounded-full mt-2 sm:mt-0">{exp.period}</p>
+                </div>
+                  <p className="text-md text-muted-foreground mb-4 font-semibold">{exp.company}</p>
                   <ul className="space-y-2">
                     {exp.details.map((detail, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary/80 mt-1 shrink-0" />
-                        <span className="text-sm">{detail}</span>
+                      <li key={i} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 shrink-0" />
+                        <span className="text-sm md:text-base text-foreground/80">{detail}</span>
                       </li>
                     ))}
                   </ul>
-                </div>
               </div>
             </div>
           ))}
@@ -69,3 +70,5 @@ export default function ExperienceSection() {
     </section>
   );
 }
+
+    

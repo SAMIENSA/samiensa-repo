@@ -11,6 +11,7 @@ import {
   Facebook,
   Instagram,
   FileText,
+  Youtube,
 } from 'lucide-react';
 import type { Skill, Experience, Project, ProjectCategory, PortfolioData, Language } from './types';
 
@@ -25,6 +26,17 @@ export const skills: Skill[] = [
 
 export const experiences: { [key in Language]: Experience[] } = {
   en: [
+    { 
+      role: 'Content Creator', 
+      company: 'Youtube',
+      period: '2016 – Present',
+      details: [
+        'Managed and grew a gaming channel',
+        'Created engaging content for a wide audience',
+        'Edited and produced high-quality videos',
+        'Designed thumbnails and branding materials'
+      ]
+    },
     { 
       role: 'Freelance Multimedia Artist', 
       company: 'Self-employed',
@@ -48,6 +60,17 @@ export const experiences: { [key in Language]: Experience[] } = {
     },
   ],
   ar: [
+    { 
+      role: 'صانع محتوى', 
+      company: 'يوتيوب',
+      period: '2016 – الآن',
+      details: [
+        'إدارة وتنمية قناة ألعاب',
+        'إنشاء محتوى جذاب لجمهور واسع',
+        'مونتاج وإنتاج فيديوهات عالية الجودة',
+        'تصميم الصور المصغرة ومواد العلامة التجارية',
+      ]
+    },
     { 
       role: 'فنان ملتميديا مستقل', 
       company: 'عمل حر',
@@ -386,6 +409,7 @@ export const socialLinks = [
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/khaled-mohamed-a895a6320/', icon: Linkedin },
     { name: 'Instagram', href: 'https://www.instagram.com/samiensa1/', icon: Instagram },
     { name: 'Facebook', href: 'https://www.facebook.com/samiensa1/', icon: Facebook },
+    { name: 'Youtube', href: 'https://www.youtube.com/@samiensa', icon: Youtube}
 ];
 
 export const cvLink = {
@@ -397,3 +421,5 @@ export const folderLinks = {
   video: 'https://drive.google.com/drive/folders/1mExmp2nQB6KKFFDwRJjYCHLytyMLsISW?usp=sharing',
   photo: 'https://drive.google.com/drive/folders/1k9gRftLTzchLB6mZ3Aa3Y4odWYesCUg3?usp=sharing',
 }
+
+    
