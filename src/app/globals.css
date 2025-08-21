@@ -134,19 +134,8 @@
     }
   }
 
-  @keyframes char-glow {
-    0% { color: hsl(var(--foreground)); text-shadow: none; }
-    50% { color: hsl(var(--primary-foreground)); text-shadow: 0 0 5px hsl(var(--accent)), 0 0 10px hsl(var(--accent)); }
-    100% { color: hsl(var(--foreground)); text-shadow: none; }
-  }
-
   .animated-text-glow {
     animation: text-glow-pulse 4s ease-in-out infinite;
-  }
-
-  .char-glow-animation span {
-    animation: char-glow 1.5s ease-out forwards;
-    opacity: 0;
   }
 
   @keyframes avatar-glow {

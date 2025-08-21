@@ -15,22 +15,16 @@ export default function HeroSection() {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
 
   const nameChars = useMemo(() => heroContent.name.split(''), [heroContent.name]);
-  const [textAnimationComplete, setTextAnimationComplete] = useState(false);
-
+  
   useEffect(() => {
     const roleInterval = setInterval(() => {
       setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % heroContent.roles.length);
     }, 2000);
 
-    const animationTimeout = setTimeout(() => {
-      setTextAnimationComplete(true);
-    }, nameChars.length * 100 + 500); // Wait for char animation
-
     return () => {
       clearInterval(roleInterval);
-      clearTimeout(animationTimeout);
     };
-  }, [heroContent.roles.length, nameChars.length]);
+  }, [heroContent.roles.length]);
 
   return (
     <section className="relative overflow-hidden bg-background pt-10 md:pt-20">
@@ -60,20 +54,8 @@ export default function HeroSection() {
         </div>
 
         <div className="space-y-6">
-          <h1 className={cn(
-            "text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight",
-             "char-glow-animation",
-             textAnimationComplete && "animated-text-glow"
-          )}>
-            {nameChars.map((char, index) => (
-              <span
-                key={index}
-                className="inline-block"
-                style={{ animationDelay: `${index * 0.05}s` }}
-              >
-                {char === ' ' ? '\u00A0' : char}
-              </span>
-            ))}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight animated-text-glow">
+            {heroContent.name}
           </h1>
           <div className="h-10 text-xl md:text-2xl font-semibold text-primary">
             <span className="font-headline">{heroContent.roles[currentRoleIndex]}</span>
