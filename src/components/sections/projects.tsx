@@ -18,34 +18,23 @@ export default function ProjectsSection() {
   const categories = projectCategories[language];
 
   const [activeTab, setActiveTab] = useState<ProjectType>('video');
-  const [selectedCategories, setSelectedCategories] = useState<string[]>(['all']);
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const handleCategoryClick = (categoryKey: string) => {
-    if (categoryKey === 'all') {
-      setSelectedCategories(['all']);
-    } else {
-      setSelectedCategories(prev => {
-        const newCategories = prev.includes('all') ? [] : [...prev];
-        if (newCategories.includes(categoryKey)) {
-          return newCategories.filter(c => c !== categoryKey);
-        } else {
-          return [...newCategories, categoryKey];
-        }
-      });
-    }
+    setSelectedCategory(categoryKey);
   };
 
   const filteredProjects = useMemo(() => {
     const projectsInTab = allProjects.filter(p => p.type === activeTab);
-    if (selectedCategories.length === 0 || selectedCategories.includes('all')) {
+    if (selectedCategory === 'all') {
       return projectsInTab;
     }
     return projectsInTab.filter(project => 
-      selectedCategories.some(category => project.categories.includes(category))
+      project.categories.includes(selectedCategory)
     );
-  }, [activeTab, selectedCategories]);
+  }, [activeTab, selectedCategory]);
 
   const handleCardClick = (project: Project) => {
     setSelectedProject(project);
@@ -78,7 +67,7 @@ export default function ProjectsSection() {
           className="w-full"
           onValueChange={(value) => {
             setActiveTab(value as ProjectType);
-            setSelectedCategories(['all']);
+            setSelectedCategory('all');
           }}
         >
           <TabsList className="grid w-full grid-cols-2 md:w-1/2 mx-auto">
@@ -90,7 +79,7 @@ export default function ProjectsSection() {
             {availableCategories.map(category => (
               <Button
                 key={category.key}
-                variant={selectedCategories.includes(category.key) ? 'default' : 'outline'}
+                variant={selectedCategory === category.key ? 'default' : 'outline'}
                 onClick={() => handleCategoryClick(category.key)}
               >
                 {category.name}
