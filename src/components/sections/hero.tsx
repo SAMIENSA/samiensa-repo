@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useLanguage } from "@/hooks/use-language";
 import { cvLink, portfolioData } from "@/lib/data";
 import { Button } from "@/components/ui/button";
@@ -13,13 +13,24 @@ export default function HeroSection() {
   const { language } = useLanguage();
   const heroContent = portfolioData[language].hero;
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [textAnimationComplete, setTextAnimationComplete] = useState(false);
+
+  const nameChars = useMemo(() => heroContent.name.split(''), [heroContent.name]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const roleInterval = setInterval(() => {
       setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % heroContent.roles.length);
     }, 2000);
-    return () => clearInterval(interval);
-  }, [heroContent.roles.length]);
+
+    const animationTimeout = setTimeout(() => {
+      setTextAnimationComplete(true);
+    }, nameChars.length * 100 + 1000); // Wait for char animation + 1s
+
+    return () => {
+      clearInterval(roleInterval);
+      clearTimeout(animationTimeout);
+    };
+  }, [heroContent.roles.length, nameChars.length]);
 
   return (
     <section className="relative overflow-hidden bg-background pt-10 md:pt-20">
@@ -49,8 +60,19 @@ export default function HeroSection() {
         </div>
 
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary bg-[200%_auto] animate-gradient">
-            {heroContent.name}
+          <h1 className={cn(
+            "text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight char-glow-animation",
+            textAnimationComplete && "animated-text-glow"
+          )}>
+            {nameChars.map((char, index) => (
+              <span
+                key={index}
+                className="inline-block"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
           </h1>
           <div className="h-10 text-xl md:text-2xl font-semibold text-primary">
             <span className="font-headline">{heroContent.roles[currentRoleIndex]}</span>
