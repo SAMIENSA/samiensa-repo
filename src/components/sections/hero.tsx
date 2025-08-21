@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { useLanguage } from "@/hooks/use-language";
 import { cvLink, portfolioData } from "@/lib/data";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,7 @@ export default function HeroSection() {
   const { language } = useLanguage();
   const heroContent = portfolioData[language].hero;
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const backgroundRef = useRef<HTMLDivElement>(null);
 
   const nameChars = useMemo(() => heroContent.name.split(''), [heroContent.name]);
   
@@ -26,13 +27,32 @@ export default function HeroSection() {
     };
   }, [heroContent.roles.length]);
 
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      if (backgroundRef.current) {
+        const { clientX, clientY } = event;
+        const { innerWidth, innerHeight } = window;
+        const xPercent = (clientX / innerWidth) * 100;
+        const yPercent = (clientY / innerHeight) * 100;
+        
+        backgroundRef.current.style.background = `radial-gradient(circle at ${xPercent}% ${yPercent}%, hsl(var(--primary) / 0.3), transparent 30%), radial-gradient(circle at ${100 - xPercent}% ${100 - yPercent}%, hsl(var(--accent) / 0.3), transparent 30%)`;
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-background pt-10 md:pt-20">
        <div 
-        className="absolute inset-0 z-0 opacity-50 dark:opacity-70"
+        ref={backgroundRef}
+        className="absolute inset-0 z-0 opacity-50 dark:opacity-70 transition-background duration-300"
         style={{
-          backgroundImage: 'radial-gradient(circle at 25% 30%, hsl(var(--primary) / 0.3), transparent 30%), radial-gradient(circle at 75% 70%, hsl(var(--accent) / 0.3), transparent 30%)',
-          animation: 'animated-gradient 15s ease infinite'
+          background: 'radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.3), transparent 30%), radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.3), transparent 30%)',
         }}
       ></div>
       <div className="container relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] py-10 md:py-20 px-4 md:px-0 text-center">
@@ -54,7 +74,7 @@ export default function HeroSection() {
         </div>
 
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight animated-text-glow">
+           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight animated-text-glow">
             {heroContent.name}
           </h1>
           <div className="h-10 text-xl md:text-2xl font-semibold text-primary">
