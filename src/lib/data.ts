@@ -23,7 +23,7 @@ export const skills: Skill[] = [
     { name: 'Motion Graphics & Animation', descriptionKey: 'motion_desc', icon: Clapperboard },
     { name: 'Video Editing (Premiere, DaVinci)', descriptionKey: 'editing_desc', icon: Scissors },
     { name: 'Branding & Graphic Design', descriptionKey: 'branding_desc', icon: PenTool },
-    { name: 'AI Tools (ComfyUI)', descriptionKey: 'ai_desc', icon: BrainCircuit },
+    { name: 'AI Tools', descriptionKey: 'ai_desc', icon: BrainCircuit },
   ];
 
 export const experiences: { [key in Language]: Experience[] } = {
@@ -47,7 +47,7 @@ export const experiences: { [key in Language]: Experience[] } = {
         '3D models for product promotion (Blender)',
         'Marketing motion graphics & unique VFX (After Effects)',
         'Branding assets: logos, posters, menus, websites',
-        'Creative solutions leveraging AI tools (ComfyUI)',
+        'Creative solutions leveraging AI tools',
       ]
     },
     { 
@@ -81,7 +81,7 @@ export const experiences: { [key in Language]: Experience[] } = {
         'نماذج ثلاثية الأبعاد لترويج المنتجات (Blender)',
         'رسوم متحركة تسويقية ومؤثرات بصرية فريدة (After Effects)',
         'تصميم أصول العلامة التجارية: شعارات، ملصقات، قوائم، مواقع إلكترونية',
-        'حلول إبداعية باستخدام أدوات الذكاء الاصطناعي (ComfyUI)',
+        'حلول إبداعية باستخدام أدوات الذكاء الاصطناعي',
       ]
     },
     { 
