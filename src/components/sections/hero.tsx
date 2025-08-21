@@ -13,8 +13,6 @@ export default function HeroSection() {
   const { language } = useLanguage();
   const heroContent = portfolioData[language].hero;
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [primaryHsl, setPrimaryHsl] = useState("");
-  const [accentHsl, setAccentHsl] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,31 +21,20 @@ export default function HeroSection() {
     return () => clearInterval(interval);
   }, [heroContent.roles.length]);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const computedStyle = getComputedStyle(document.documentElement);
-      const primary = computedStyle.getPropertyValue('--primary').trim();
-      const accent = computedStyle.getPropertyValue('--accent').trim();
-      setPrimaryHsl(primary);
-      setAccentHsl(accent);
-    }
-  }, []);
-
   return (
     <section className="relative overflow-hidden bg-background pt-10 md:pt-20">
-      <div className="absolute inset-0 z-0 opacity-20 dark:opacity-30">
-        <div className="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-primary rounded-full filter blur-3xl animate-blob"></div>
-        <div className="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-accent rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
-      </div>
+       <div 
+        className="absolute inset-0 z-0 opacity-50 dark:opacity-70"
+        style={{
+          backgroundImage: 'radial-gradient(circle at 25% 30%, hsl(var(--primary) / 0.3), transparent 30%), radial-gradient(circle at 75% 70%, hsl(var(--accent) / 0.3), transparent 30%)',
+          animation: 'animated-gradient 15s ease infinite'
+        }}
+      ></div>
       <div className="container relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] py-10 md:py-20 px-4 md:px-0 text-center">
         
         <div className="relative mb-8 avatar-container">
             <div 
               className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 mx-auto rounded-full overflow-hidden shadow-2xl avatar-image-wrapper animated-glow"
-              style={{
-                ['--primary-hsl' as any]: primaryHsl,
-                ['--accent-hsl' as any]: accentHsl
-              }}
             >
               <Image
                   src="https://up6.cc/2025/08/175543874052991.jpg"
@@ -62,7 +49,7 @@ export default function HeroSection() {
         </div>
 
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary bg-[200%_auto] animate-gradient">
             {heroContent.name}
           </h1>
           <div className="h-10 text-xl md:text-2xl font-semibold text-primary">
