@@ -48,8 +48,7 @@ export default function ProjectsSection() {
   }, [activeTab, categories]);
 
   return (
-    <section id="projects">
-      <div className="section-bg"></div>
+    <section id="projects" className="bg-background/50 backdrop-blur-sm">
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold font-headline mb-4">{projectsContent.title}</h2>

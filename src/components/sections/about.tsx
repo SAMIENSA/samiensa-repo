@@ -9,8 +9,7 @@ export default function AboutSection() {
   const aboutContent = portfolioData[language].about;
   
   return (
-    <section id="about" className="overflow-hidden">
-      <div className="section-bg"></div>
+    <section id="about" className="overflow-hidden bg-background/50 backdrop-blur-sm">
        <div className="container text-center">
         <h2 className="text-3xl font-bold font-headline mb-4">{aboutContent.title}</h2>
         <p className="max-w-3xl mx-auto text-lg text-muted-foreground mb-12">

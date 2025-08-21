@@ -13,9 +13,6 @@ export default function HeroSection() {
   const { language } = useLanguage();
   const heroContent = portfolioData[language].hero;
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const backgroundRef = useRef<HTMLDivElement>(null);
-
-  const nameChars = useMemo(() => heroContent.name.split(''), [heroContent.name]);
   
   useEffect(() => {
     const roleInterval = setInterval(() => {
@@ -27,34 +24,8 @@ export default function HeroSection() {
     };
   }, [heroContent.roles.length]);
 
-  useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      if (backgroundRef.current) {
-        const { clientX, clientY } = event;
-        const { innerWidth, innerHeight } = window;
-        const xPercent = (clientX / innerWidth) * 100;
-        const yPercent = (clientY / innerHeight) * 100;
-        
-        backgroundRef.current.style.background = `radial-gradient(circle at ${xPercent}% ${yPercent}%, hsl(var(--primary) / 0.3), transparent 30%), radial-gradient(circle at ${100 - xPercent}% ${100 - yPercent}%, hsl(var(--accent) / 0.3), transparent 30%)`;
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
   return (
-    <section className="relative overflow-hidden bg-background pt-10 md:pt-20">
-       <div 
-        ref={backgroundRef}
-        className="absolute inset-0 z-0 opacity-50 dark:opacity-70 transition-background duration-300"
-        style={{
-          background: 'radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.3), transparent 30%), radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.3), transparent 30%)',
-        }}
-      ></div>
+    <section className="relative overflow-hidden bg-transparent pt-10 md:pt-20">
       <div className="container relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] py-10 md:py-20 px-4 md:px-0 text-center">
         
         <div className="relative mb-8 avatar-container">

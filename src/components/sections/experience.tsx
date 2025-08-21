@@ -11,8 +11,7 @@ export default function ExperienceSection() {
   const experienceList = experiences[language];
 
   return (
-    <section id="experience">
-      <div className="section-bg"></div>
+    <section id="experience" className="bg-background/50 backdrop-blur-sm">
       <div className="container">
         <div className="text-center mb-16">
             <h2 className="text-3xl font-bold font-headline mb-4 relative inline-block">

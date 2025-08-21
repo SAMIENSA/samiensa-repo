@@ -64,8 +64,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="text-foreground/90">
-      <div className="section-bg"></div>
+    <section id="contact" className="text-foreground/90 bg-background/50 backdrop-blur-sm">
       <div className="container">
         <h2 className="text-3xl md:text-4xl font-bold font-headline text-center mb-12">{contactContent.title}</h2>
         <div className="grid md:grid-cols-2 gap-12 items-start">
