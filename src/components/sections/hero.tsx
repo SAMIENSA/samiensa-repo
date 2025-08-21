@@ -13,9 +13,9 @@ export default function HeroSection() {
   const { language } = useLanguage();
   const heroContent = portfolioData[language].hero;
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [textAnimationComplete, setTextAnimationComplete] = useState(false);
 
   const nameChars = useMemo(() => heroContent.name.split(''), [heroContent.name]);
+  const [textAnimationComplete, setTextAnimationComplete] = useState(false);
 
   useEffect(() => {
     const roleInterval = setInterval(() => {
@@ -24,7 +24,7 @@ export default function HeroSection() {
 
     const animationTimeout = setTimeout(() => {
       setTextAnimationComplete(true);
-    }, nameChars.length * 100 + 1000); // Wait for char animation + 1s
+    }, nameChars.length * 100 + 500); // Wait for char animation
 
     return () => {
       clearInterval(roleInterval);
@@ -61,14 +61,15 @@ export default function HeroSection() {
 
         <div className="space-y-6">
           <h1 className={cn(
-            "text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight char-glow-animation",
-            textAnimationComplete && "animated-text-glow"
+            "text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight",
+             "char-glow-animation",
+             textAnimationComplete && "animated-text-glow"
           )}>
             {nameChars.map((char, index) => (
               <span
                 key={index}
                 className="inline-block"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                style={{ animationDelay: `${index * 0.05}s` }}
               >
                 {char === ' ' ? '\u00A0' : char}
               </span>
