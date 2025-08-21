@@ -41,7 +41,7 @@ export default function ExperienceSection() {
               >
                 <div 
                   className={cn(
-                    "absolute z-10 flex items-center justify-center w-12 h-12 bg-primary rounded-full ring-8 ring-muted/30 dark:ring-muted/10 top-0",
+                    "absolute z-10 flex items-center justify-center w-12 h-12 bg-primary rounded-full ring-8 ring-background transition-all duration-300 group-hover:ring-primary/20",
                     "left-1/2 -translate-x-1/2"
                   )}
                 >
@@ -50,7 +50,7 @@ export default function ExperienceSection() {
 
                 <div 
                   className={cn(
-                    "bg-card border border-border/50 rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/40 hover:-translate-y-1"
+                    "bg-card border border-border/50 rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/40 hover:-translate-y-2"
                   )}
                 >
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
