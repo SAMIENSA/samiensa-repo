@@ -9,8 +9,8 @@ export default function AboutSection() {
   const aboutContent = portfolioData[language].about;
   
   return (
-    <section id="about" className="relative overflow-hidden">
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-primary/10 via-background to-background -z-10 animate-gradient bg-[length:200%_200%]"></div>
+    <section id="about" className="overflow-hidden">
+      <div className="section-bg"></div>
        <div className="container text-center">
         <h2 className="text-3xl font-bold font-headline mb-4">{aboutContent.title}</h2>
         <p className="max-w-3xl mx-auto text-lg text-muted-foreground mb-12">

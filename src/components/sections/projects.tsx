@@ -49,6 +49,7 @@ export default function ProjectsSection() {
 
   return (
     <section id="projects">
+      <div className="section-bg"></div>
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold font-headline mb-4">{projectsContent.title}</h2>

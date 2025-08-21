@@ -9,7 +9,8 @@ export default function SkillsSection() {
   const skillsContent = portfolioData[language].skills;
 
   return (
-    <section id="skills" className="bg-background py-16 md:py-24">
+    <section id="skills" className="py-16 md:py-24">
+      <div className="section-bg"></div>
       <div className="container text-center">
         <h2 className="text-3xl font-bold font-headline mb-4 relative inline-block">
           {skillsContent.title}
