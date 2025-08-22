@@ -324,6 +324,7 @@
     padding-bottom: 200%;
     border-radius: 50%;
     transform-origin: center;
+    transform: translate(-50%, -50%);
     background-image: radial-gradient(circle, hsl(var(--primary)/0.5) 0%, transparent 60%);
   }
   .radial-glow-bg::before {
