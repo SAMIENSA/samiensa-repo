@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Menu } from "lucide-react";
 
 import { useLanguage } from "@/hooks/use-language";
-import { portfolioData } from "@/lib/data";
+import { portfolioData, socialLinks } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
@@ -63,6 +63,15 @@ export function Header() {
                 </Link>
               ))}
             </div>
+            <div className="mt-8 flex items-center gap-2">
+                {socialLinks.map((link) => (
+                    <Button key={link.name} variant="ghost" size="icon" asChild>
+                    <Link href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
+                        <link.icon className="h-5 w-5" />
+                    </Link>
+                    </Button>
+                ))}
+            </div>
           </SheetContent>
         </Sheet>
         
@@ -73,6 +82,15 @@ export function Header() {
             </Link>
           </div>
           <div className="flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-1">
+                {socialLinks.map((link) => (
+                    <Button key={link.name} variant="ghost" size="icon" asChild>
+                    <Link href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
+                        <link.icon className="h-5 w-5" />
+                    </Link>
+                    </Button>
+                ))}
+            </div>
             <LanguageSwitcher />
             <ThemeSwitcher />
           </div>

@@ -61,12 +61,6 @@ export default function HeroSection() {
                 {heroContent.cta}
               </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href="#contact">
-                <MessageSquare className="mr-2 h-5 w-5" />
-                {heroContent.contact_cta}
-              </Link>
-            </Button>
           </div>
         </div>
       </div>
