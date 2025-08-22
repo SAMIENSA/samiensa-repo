@@ -405,7 +405,7 @@ export const portfolioData: PortfolioData = {
 };
 
 export const socialLinks = [
-    { name: 'Email', href: 'mailto:khalerdkolkolkol@gmail.com', icon: Mail },
+    { name: 'Email', href: 'https://mail.google.com/mail/?view=cm&to=khalerdkolkolkol@gmail.com', icon: Mail },
     { name: 'Phone', href: 'https://wa.me/+201060241230', icon: MessageCircle },
     { name: 'Telegram', href: 'https://t.me/samiensa3', icon: Send },
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/khaled-mohamed-a895a6320/', icon: Linkedin },
