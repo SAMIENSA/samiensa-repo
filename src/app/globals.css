@@ -172,7 +172,7 @@
     transform: translateY(0);
   }
 
-  /* Circuit Board Background */
+  /* Circuit Board Background - for Skills */
   @keyframes move-horizontal {
     0% { background-position-x: 0; }
     100% { background-position-x: 10rem; }
@@ -214,7 +214,7 @@
     animation: pulse 4s ease-in-out infinite;
   }
 
-  /* Holographic Background */
+  /* Holographic Background - for Experience */
   @keyframes holographic-wave-1 {
     0%, 100% { transform: translateY(0) scale(1); opacity: 0.1; }
     50% { transform: translateY(-30px) scale(1.1); opacity: 0.15; }
@@ -253,54 +253,74 @@
     animation: holographic-dots 8s ease-in-out infinite, move-horizontal 30s linear infinite, move-vertical 40s linear infinite reverse;
   }
 
-  /* Digital Grid Background - Replaced with Flowing Particles */
-  @keyframes particles-flow-1 {
-    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
-    25% { transform: translate(5vw, 10vh) scale(1.2); opacity: 0.3; }
-    50% { transform: translate(-10vw, -5vh) scale(0.9); opacity: 0.25; }
-    75% { transform: translate(10vw, -10vh) scale(1.1); opacity: 0.35; }
+  /* Digital Grid Background - for Projects */
+  @keyframes grid-pan {
+    0% { background-position: 0% 100%; }
+    100% { background-position: 100% 0%; }
   }
-  @keyframes particles-flow-2 {
-    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
-    25% { transform: translate(-8vw, -12vh) scale(1.3); opacity: 0.35; }
-    50% { transform: translate(12vw, 8vh) scale(0.8); opacity: 0.2; }
-    75% { transform: translate(-5vw, 15vh) scale(1.2); opacity: 0.4; }
+  @keyframes sparks-rise {
+    0% { transform: translateY(0); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: translateY(-100px); opacity: 0; }
   }
-  @keyframes sparks-fade {
-    0%, 100% { opacity: 0.1; }
-    50% { opacity: 0.3; }
+  @keyframes beam-sweep {
+    0% { transform: translateX(-100%) translateY(-50%) rotate(-45deg); }
+    100% { transform: translateX(100%) translateY(-50%) rotate(-45deg); }
   }
 
   .digital-grid-bg {
     @apply absolute inset-0 -z-10 overflow-hidden;
     background-color: hsl(var(--background));
+    perspective: 1000px;
   }
   .digital-grid-bg::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background-image:
-      /* Flowing Shapes */
-      radial-gradient(ellipse 50% 80% at 20% 25%, hsl(var(--accent) / 0.2), transparent 70%),
-      radial-gradient(ellipse 60% 70% at 80% 75%, hsl(var(--primary) / 0.2), transparent 70%),
-      radial-gradient(ellipse 40% 60% at 50% 50%, hsl(var(--chart-4) / 0.2), transparent 70%);
-    animation: particles-flow-1 20s ease-in-out infinite, particles-flow-2 25s ease-in-out infinite reverse;
+    inset: -100% 0 0 0;
+    background-image: 
+      linear-gradient(to right, hsl(var(--primary) / 0.15) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--primary) / 0.15) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    animation: grid-pan 30s linear infinite;
+    transform-origin: bottom center;
+    transform: rotateX(60deg);
   }
   .digital-grid-bg::after {
     content: '';
     position: absolute;
     inset: 0;
-     background-image:
-      /* Particle Sparks */
-      radial-gradient(circle at 15% 85%, hsl(var(--accent) / 0.5) 1px, transparent 2px),
-      radial-gradient(circle at 80% 20%, hsl(var(--primary) / 0.5) 1px, transparent 2px),
-      radial-gradient(circle at 40% 50%, hsl(var(--chart-5) / 0.5) 1px, transparent 2px),
-      radial-gradient(circle at 90% 90%, white 1px, transparent 2px);
-    background-size: 15rem 15rem, 20rem 20rem, 12rem 12rem, 18rem 18rem;
-    animation: move-horizontal 30s linear infinite alternate, move-vertical 40s linear infinite alternate, sparks-fade 8s ease-in-out infinite;
+    background-image:
+      radial-gradient(circle at 20% 80%, hsl(var(--accent) / 0.05) 0%, transparent 10%),
+      radial-gradient(circle at 80% 30%, hsl(var(--primary) / 0.05) 0%, transparent 10%);
+    z-index: 2;
+  }
+  .sparks {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+  }
+  .spark {
+    position: absolute;
+    bottom: 0;
+    width: 2px;
+    height: 2px;
+    background: hsl(var(--accent));
+    border-radius: 50%;
+    animation: sparks-rise 3s linear infinite;
+  }
+  .beam {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.2), transparent);
+    animation: beam-sweep 15s linear infinite;
+    animation-delay: var(--beam-delay);
+    z-index: 4;
   }
   
-  /* Radial Glow Background */
+  /* Radial Glow Background - for About/Contact */
   @keyframes radial-pulse-1 {
     0%, 100% { transform: scale(1); opacity: 0; }
     50% { opacity: 0.15; }
@@ -333,5 +353,4 @@
   .radial-glow-bg::after {
     animation: radial-pulse-2 8s ease-out infinite 2s;
   }
-
 }

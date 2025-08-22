@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/hooks/use-language';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
@@ -13,6 +13,34 @@ import { ProjectModal } from '../project-modal';
 import { cn } from '@/lib/utils';
 
 type ProjectType = 'video' | 'photo';
+
+function Sparks() {
+  const [sparks, setSparks] = useState<{ id: number; left: string; delay: string; duration: string; }[]>([]);
+
+  useEffect(() => {
+    const newSparks = Array.from({ length: 20 }).map((_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      delay: `${Math.random() * 5}s`,
+      duration: `${3 + Math.random() * 4}s`
+    }));
+    setSparks(newSparks);
+  }, []);
+
+  return (
+    <div className="sparks">
+      {sparks.map(spark => (
+        <div 
+          key={spark.id} 
+          className="spark" 
+          style={{ left: spark.left, animationDelay: spark.delay, animationDuration: spark.duration }}
+        />
+      ))}
+      <div className="beam" style={{ '--beam-delay': '0s' } as React.CSSProperties} />
+      <div className="beam" style={{ '--beam-delay': '-7.5s' } as React.CSSProperties} />
+    </div>
+  );
+}
 
 export default function ProjectsSection() {
   const { language } = useLanguage();
@@ -56,7 +84,9 @@ export default function ProjectsSection() {
       ref={ref}
       className={cn("scroll-fade-in", { "is-visible": isVisible })}
     >
-      <div className="digital-grid-bg"></div>
+      <div className="digital-grid-bg">
+        <Sparks />
+      </div>
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold font-headline mb-4">{projectsContent.title}</h2>
