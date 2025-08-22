@@ -57,13 +57,13 @@ export function ParticleBackground() {
     let particles: Particle[] = [];
     const init = () => {
       particles = [];
-      const numberOfParticles = (canvas.height * canvas.width) / 9000;
+      const numberOfParticles = (canvas.height * canvas.width) / 12000; // Reduced particle density
       for (let i = 0; i < numberOfParticles; i++) {
-        const size = Math.random() * 1.5 + 0.5;
+        const size = Math.random() * 1.2 + 0.3; // Smaller particles
         const x = Math.random() * (innerWidth - size * 2) + size;
         const y = Math.random() * (innerHeight - size * 2) + size;
-        const speedX = (Math.random() - 0.5) * 0.5;
-        const speedY = (Math.random() - 0.5) * 0.5;
+        const speedX = (Math.random() - 0.5) * 0.3; // Slower speed
+        const speedY = (Math.random() - 0.5) * 0.3; // Slower speed
         particles.push(new Particle(x, y, size, speedX, speedY));
       }
     };
@@ -75,10 +75,11 @@ export function ParticleBackground() {
             for (let b = a; b < particles.length; b++) {
                 const distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x))
                                + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
-                if (distance < (canvas.width / 7) * (canvas.height / 7)) {
-                    opacityValue = 1 - (distance / 20000);
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
-                    ctx.lineWidth = 0.5;
+                if (distance < (canvas.width / 8) * (canvas.height / 8)) { // Increased connection distance slightly
+                    opacityValue = 1 - (distance / 25000); // Adjusted opacity calculation
+                    const lineColor = theme === 'dark' ? `rgba(255, 255, 255, ${opacityValue})` : `rgba(0, 0, 0, ${opacityValue})`;
+                    ctx.strokeStyle = lineColor;
+                    ctx.lineWidth = 0.3; // Thinner lines
                     ctx.beginPath();
                     ctx.moveTo(particles[a].x, particles[a].y);
                     ctx.lineTo(particles[b].x, particles[b].y);
@@ -93,7 +94,7 @@ export function ParticleBackground() {
       ctx.clearRect(0, 0, innerWidth, innerHeight);
 
       // Set particle color based on theme
-      const particleColor = theme === 'dark' ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.8)';
+      const particleColor = theme === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)';
       ctx.fillStyle = particleColor;
 
       for (const particle of particles) {
