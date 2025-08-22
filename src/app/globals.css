@@ -118,7 +118,7 @@
       transform: translatey(0px);
     }
     50% {
-      transform: translatey(-10px);
+      transform: translatey(-20px);
     }
     100% {
       transform: translatey(0px);
@@ -151,7 +151,7 @@
   }
   .avatar-container {
     perspective: 1000px;
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite;
   }
   .avatar-image-wrapper {
     transition: transform 0.5s ease-out;
