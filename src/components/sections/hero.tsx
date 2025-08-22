@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useMemo, useRef } from "react";
 import { useLanguage } from "@/hooks/use-language";
-import { cvLink, portfolioData } from "@/lib/data";
+import { cvLink, portfolioData, socialLinks } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Download, MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -54,6 +54,15 @@ export default function HeroSection() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             {heroContent.bio}
           </p>
+          <div className="flex justify-center gap-2 mb-4">
+            {socialLinks.map((link) => (
+              <Button key={link.name} variant="outline" size="icon" asChild className="rounded-full border-2 border-primary/20 hover:bg-primary/10">
+                <Link href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
+                  <link.icon className="h-5 w-5 text-primary" />
+                </Link>
+              </Button>
+            ))}
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
               <Link href={cvLink[language]} target="_blank" rel="noopener noreferrer">
