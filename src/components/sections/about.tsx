@@ -17,7 +17,6 @@ export default function AboutSection() {
       ref={ref}
       className={cn("overflow-hidden scroll-fade-in", { "is-visible": isVisible })}
     >
-       <div className="radial-glow-bg" />
        <div className="container text-center">
         <h2 className="text-3xl font-bold font-headline mb-4">{aboutContent.title}</h2>
         <p className="max-w-3xl mx-auto text-lg text-muted-foreground mb-12">
