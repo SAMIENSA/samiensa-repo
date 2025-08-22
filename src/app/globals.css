@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* Light Theme - Updated to Green/Red */
+    /* Light Theme - Updated to Blue/Purple Neon */
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
@@ -41,7 +41,7 @@
   }
 
   .dark {
-    /* Dark Theme - Updated to Green/Red */
+    /* Dark Theme - Updated to Blue/Purple Neon */
     --background: 223 15% 9%;
     --foreground: 210 20% 98%;
     --card: 223 15% 12%;
