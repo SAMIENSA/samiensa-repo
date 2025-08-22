@@ -320,7 +320,7 @@
     z-index: 4;
   }
   
-  /* Radial Glow Background - for About/Contact */
+  /* Radial Glow Background - for About */
   @keyframes radial-pulse-1 {
     0%, 100% { transform: scale(1); opacity: 0; }
     50% { opacity: 0.15; }
@@ -352,5 +352,48 @@
   }
   .radial-glow-bg::after {
     animation: radial-pulse-2 8s ease-out infinite 2s;
+  }
+
+  /* Bokeh Background - for Contact */
+  @keyframes bokeh-float-1 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(20px, 40px); }
+    100% { transform: translate(0, 0); }
+  }
+  @keyframes bokeh-float-2 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-30px, -10px); }
+    100% { transform: translate(0, 0); }
+  }
+  @keyframes bokeh-float-3 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(10px, -30px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  .bokeh-bg {
+    @apply absolute inset-0 -z-10 overflow-hidden;
+    background: hsl(var(--background));
+  }
+
+  .bokeh-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.1), transparent 30vmax),
+      radial-gradient(circle at 80% 70%, hsl(var(--accent) / 0.1), transparent 30vmax);
+    animation: bokeh-float-1 20s ease-in-out infinite;
+  }
+
+  .bokeh-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.05), transparent 25vmax),
+      radial-gradient(circle at 10% 80%, hsl(var(--accent) / 0.1), transparent 20vmax),
+      radial-gradient(circle at 90% 10%, hsl(var(--primary) / 0.15), transparent 20vmax);
+    animation: bokeh-float-2 25s ease-in-out infinite reverse;
   }
 }
