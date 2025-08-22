@@ -411,7 +411,6 @@ export const socialLinks = [
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/khaled-mohamed-a895a6320/', icon: Linkedin },
     { name: 'Instagram', href: 'https://www.instagram.com/samiensa1/', icon: Instagram },
     { name: 'Facebook', href: 'https://www.facebook.com/samiensa1/', icon: Facebook },
-    { name: 'Youtube', href: 'https://www.youtube.com/@samiensa', icon: Youtube}
 ];
 
 export const cvLink = {
