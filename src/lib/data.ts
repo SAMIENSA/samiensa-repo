@@ -21,7 +21,7 @@ export const skills: Skill[] = [
     { name: '3D Modeling & Rendering (Blender)', descriptionKey: 'blender_desc', icon: Cuboid },
     { name: 'Visual Effects (After Effects)', descriptionKey: 'vfx_desc', icon: Film },
     { name: 'Motion Graphics & Animation', descriptionKey: 'motion_desc', icon: Clapperboard },
-    { name: 'Video Editing (Premiere, DaVinci)', descriptionKey: 'editing_desc', icon: Scissors },
+    { name: 'Video Editing (Premiere, After Effects, CapCut)', descriptionKey: 'editing_desc', icon: Scissors },
     { name: 'Branding & Graphic Design', descriptionKey: 'branding_desc', icon: PenTool },
     { name: 'AI Tools', descriptionKey: 'ai_desc', icon: BrainCircuit },
   ];
@@ -57,7 +57,7 @@ export const experiences: { [key in Language]: Experience[] } = {
       details: [
         'Promotional videos using Adobe Suite & Blender',
         'Graphic design deliverables across campaigns',
-        'Short-form editing (Reels) in Premiere & DaVinci',
+        'Short-form editing (Reels) in Premiere, After Effects & CapCut',
       ]
     },
   ],
@@ -91,7 +91,7 @@ export const experiences: { [key in Language]: Experience[] } = {
       details: [
         'فيديوهات ترويجية باستخدام Adobe Suite و Blender',
         'تسليمات تصميم جرافيك عبر الحملات',
-        'تحرير الفيديوهات القصيرة (Reels) في Premiere و DaVinci',
+        'تحرير الفيديوهات القصيرة (Reels) في Premiere و After Effects و CapCut',
       ]
     },
   ],
