@@ -15,8 +15,9 @@ export default function SkillsSection() {
     <section 
       id="skills"
       ref={ref}
-      className={cn("py-16 md:py-24 bg-background/50 backdrop-blur-sm scroll-fade-in", { "is-visible": isVisible })}
+      className={cn("py-16 md:py-24 scroll-fade-in", { "is-visible": isVisible })}
     >
+      <div className="circuit-board-bg"></div>
       <div className="container text-center">
         <h2 className="text-3xl font-bold font-headline mb-4 relative inline-block">
           {skillsContent.title}
@@ -27,7 +28,7 @@ export default function SkillsSection() {
           {skills.map((skill, index) => (
             <Card 
               key={index} 
-              className="bg-card text-left p-6 transition-all duration-300 ease-in-out hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-2 transform-gpu group"
+              className="bg-card/80 backdrop-blur-sm text-left p-6 transition-all duration-300 ease-in-out hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-2 transform-gpu group border-primary/20"
             >
               <CardContent className="p-0">
                 <div className="flex items-start gap-4">
