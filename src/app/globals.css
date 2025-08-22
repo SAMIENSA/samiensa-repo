@@ -259,4 +259,46 @@
     background-size: 10rem 10rem, 10rem 10rem, 20rem 20rem;
     animation: holographic-dots 8s ease-in-out infinite, move-horizontal 30s linear infinite, move-vertical 40s linear infinite reverse;
   }
+
+  /* Digital Grid Background */
+  @keyframes grid-pan {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+  }
+  @keyframes panel-fade {
+    0%, 100% { opacity: 0; transform: scale(0.95); }
+    20%, 80% { opacity: 0.2; transform: scale(1); }
+  }
+  @keyframes panel-fade-2 {
+    0%, 100% { opacity: 0; }
+    30%, 70% { opacity: 0.15; }
+  }
+
+  .digital-grid-bg {
+    @apply absolute inset-0 -z-10 overflow-hidden;
+    background-color: hsl(var(--background));
+  }
+  .digital-grid-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      /* Grid */
+      linear-gradient(to right, hsl(var(--primary) / 0.2) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--primary) / 0.2) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    animation: grid-pan 45s linear infinite;
+    animation-direction: alternate;
+  }
+  .digital-grid-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      /* Floating Panels */
+      radial-gradient(ellipse 50% 80% at 20% 25%, hsl(var(--accent) / 0.2), transparent),
+      radial-gradient(ellipse 50% 80% at 80% 75%, hsl(var(--primary) / 0.2), transparent);
+    animation: panel-fade 12s ease-in-out infinite, panel-fade-2 18s ease-in-out infinite reverse;
+  }
+
 }

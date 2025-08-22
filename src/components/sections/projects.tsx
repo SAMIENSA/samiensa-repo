@@ -54,8 +54,9 @@ export default function ProjectsSection() {
     <section 
       id="projects"
       ref={ref}
-      className={cn("bg-background/50 backdrop-blur-sm scroll-fade-in", { "is-visible": isVisible })}
+      className={cn("scroll-fade-in", { "is-visible": isVisible })}
     >
+      <div className="digital-grid-bg"></div>
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold font-headline mb-4">{projectsContent.title}</h2>
