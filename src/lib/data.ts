@@ -19,7 +19,7 @@ import type { Skill, Experience, Project, ProjectCategory, PortfolioData, Langua
 
 export const skills: Skill[] = [
     { name: '3D Modeling & Rendering (Blender)', descriptionKey: 'blender_desc', icon: Cuboid },
-    { name: 'Visual Effects (After Effects)', descriptionKey: 'vfx_desc', icon: Film },
+    { name: 'VFX (After Effects & Blender)', descriptionKey: 'vfx_desc', icon: Film },
     { name: 'Motion Graphics & Animation', descriptionKey: 'motion_desc', icon: Clapperboard },
     { name: 'Video Editing (Premiere, After Effects, CapCut)', descriptionKey: 'editing_desc', icon: Scissors },
     { name: 'Branding & Graphic Design', descriptionKey: 'branding_desc', icon: PenTool },
