@@ -30,13 +30,13 @@ export default function HeroSection() {
         
         <div className="relative mb-8 avatar-container">
             <div 
-              className="relative w-36 h-36 md:w-48 md:h-48 lg:w-56 lg:h-56 mx-auto rounded-full overflow-hidden shadow-2xl avatar-image-wrapper animated-glow"
+              className="relative w-44 h-44 md:w-56 md:h-56 lg:w-64 lg:h-64 mx-auto rounded-full overflow-hidden shadow-2xl avatar-image-wrapper animated-glow"
             >
               <Image
                   src="https://up6.cc/2025/08/175543874052991.jpg"
                   alt="Khaled Mohamed"
-                  width={224}
-                  height={224}
+                  width={256}
+                  height={256}
                   quality={100}
                   className="object-cover w-full h-full"
                   priority
