@@ -13,7 +13,10 @@ export default function HeroSection() {
   const { language } = useLanguage();
   const heroContent = portfolioData[language].hero;
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  
+  const [transform, setTransform] = useState("translateZ(0)");
+  const [isAnimating, setIsAnimating] = useState(true);
+  const imageWrapperRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const roleInterval = setInterval(() => {
       setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % heroContent.roles.length);
@@ -24,13 +27,55 @@ export default function HeroSection() {
     };
   }, [heroContent.roles.length]);
 
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+
+    const handleMouseMove = (event: MouseEvent) => {
+      if (imageWrapperRef.current) {
+        setIsAnimating(false);
+        clearTimeout(timeoutId);
+
+        const { clientX, clientY } = event;
+        const { innerWidth, innerHeight } = window;
+        const rotateY = (clientX / innerWidth - 0.5) * 30; // Max rotation 15deg
+        const rotateX = -(clientY / innerHeight - 0.5) * 30; // Max rotation 15deg
+        
+        setTransform(`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`);
+        
+        timeoutId = setTimeout(() => {
+          setIsAnimating(true);
+          setTransform('perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)');
+        }, 100);
+      }
+    };
+    
+    const handleMouseLeave = () => {
+        setIsAnimating(true);
+        setTransform('perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)');
+    }
+
+    window.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-transparent pt-10 md:pt-20">
       <div className="container relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] py-10 md:py-20 px-4 md:px-0 text-center">
         
         <div className="relative mb-8 avatar-container">
             <div 
-              className="relative w-44 h-44 md:w-56 md:h-56 lg:w-64 lg:h-64 mx-auto rounded-full overflow-hidden shadow-2xl avatar-image-wrapper animated-glow"
+              ref={imageWrapperRef}
+              className={cn(
+                "relative w-44 h-44 md:w-56 md:h-56 lg:w-64 lg:h-64 mx-auto rounded-full overflow-hidden shadow-2xl avatar-image-wrapper animated-glow",
+                 isAnimating && "animated-float"
+              )}
+              style={{ transform: isAnimating ? undefined : transform }}
             >
               <Image
                   src="https://up6.cc/2025/08/175543874052991.jpg"

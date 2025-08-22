@@ -153,12 +153,10 @@
     perspective: 1000px;
   }
   .avatar-image-wrapper {
-    transition: transform 0.5s ease-out;
-    animation: float 8s ease-in-out infinite;
+    transition: transform 0.1s linear;
   }
-  .avatar-container:hover .avatar-image-wrapper {
-    transform: rotateY(15deg) rotateX(10deg) scale(1.1);
-    animation-play-state: paused;
+  .animated-float {
+    animation: float 8s ease-in-out infinite;
   }
   .animated-glow {
     animation: avatar-glow 4s ease-in-out infinite;
