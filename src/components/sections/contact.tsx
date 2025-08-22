@@ -70,7 +70,7 @@ export default function ContactSection() {
     <section 
       id="contact"
       ref={ref}
-      className={cn("text-foreground/90 scroll-fade-in", { "is-visible": isVisible })}
+      className={cn("scroll-fade-in", { "is-visible": isVisible })}
     >
       <div className="radial-glow-bg" />
       <div className="container relative z-10">
