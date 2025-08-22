@@ -16,8 +16,9 @@ export default function ExperienceSection() {
     <section 
       id="experience"
       ref={ref}
-      className={cn("bg-background/50 backdrop-blur-sm scroll-fade-in", { "is-visible": isVisible })}
+      className={cn("scroll-fade-in", { "is-visible": isVisible })}
     >
+      <div className="holographic-bg"></div>
       <div className="container">
         <div className="text-center mb-16">
             <h2 className="text-3xl font-bold font-headline mb-4 relative inline-block">
@@ -56,7 +57,7 @@ export default function ExperienceSection() {
 
                 <div 
                   className={cn(
-                    "bg-card border border-border/50 rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/40 hover:-translate-y-2"
+                    "bg-card/80 backdrop-blur-sm border border-border/50 rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/40 hover:-translate-y-2"
                   )}
                 >
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">

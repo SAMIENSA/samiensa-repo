@@ -195,7 +195,7 @@
 
   .circuit-board-bg {
     @apply absolute inset-0 -z-10 overflow-hidden;
-    background-color: #121723;
+    background-color: hsl(var(--background));
   }
   .circuit-board-bg::before {
     content: '';
@@ -216,9 +216,47 @@
     background-image: 
       /* Pulsing Dots */
       radial-gradient(circle at 2.5rem 2.5rem, hsl(var(--accent)) 2px, transparent 2.5px),
-      radial-gradient(circle at 7.5rem 7.5rem, hsl(var(--accent) / 0.8) 2px, transparent BASH_OK
-2.5px);
+      radial-gradient(circle at 7.5rem 7.5rem, hsl(var(--accent) / 0.8) 2px, transparent 2.5px);
     background-size: 10rem 10rem;
     animation: pulse 4s ease-in-out infinite;
+  }
+
+  /* Holographic Background */
+  @keyframes holographic-wave-1 {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.1; }
+    50% { transform: translateY(-30px) scale(1.1); opacity: 0.15; }
+  }
+  @keyframes holographic-wave-2 {
+    0%, 100% { transform: translateX(0) scale(1); opacity: 0.1; }
+    50% { transform: translateX(40px) scale(1.2); opacity: 0.2; }
+  }
+  @keyframes holographic-dots {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+  }
+
+  .holographic-bg {
+    @apply absolute inset-0 -z-10 overflow-hidden;
+    background-color: hsl(var(--background));
+  }
+  .holographic-bg::before, .holographic-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-size: 400% 400%;
+  }
+  .holographic-bg::before {
+    background-image: 
+      radial-gradient(ellipse 80% 80% at 70% 30%, hsl(var(--primary) / 0.2), transparent),
+      radial-gradient(ellipse 60% 60% at 20% 80%, hsl(var(--accent) / 0.2), transparent);
+    animation: holographic-wave-1 15s ease-in-out infinite;
+  }
+  .holographic-bg::after {
+    background-image: 
+      radial-gradient(circle at 10% 10%, hsl(var(--primary) / 0.3) 1px, transparent 2px),
+      radial-gradient(circle at 90% 90%, hsl(var(--accent) / 0.3) 1px, transparent 2px),
+      radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.2) 2px, transparent 3px);
+    background-size: 10rem 10rem, 10rem 10rem, 20rem 20rem;
+    animation: holographic-dots 8s ease-in-out infinite, move-horizontal 30s linear infinite, move-vertical 40s linear infinite reverse;
   }
 }
