@@ -87,7 +87,7 @@ export default function ContactSection() {
               ))}
             </div>
             <div className="flex items-center gap-4 pt-4">
-              {socialLinks.filter(link => ['Instagram', 'LinkedIn', 'Facebook', 'Phone'].includes(link.name)).map((link) => (
+              {socialLinks.filter(link => ['Instagram', 'LinkedIn', 'Facebook', 'Telegram'].includes(link.name)).map((link) => (
                 <Button key={link.name} variant="outline" size="icon" asChild className="rounded-full border-2 border-primary/20 hover:bg-primary/10">
                   <Link href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
                     <link.icon className="h-5 w-5 text-primary" />
