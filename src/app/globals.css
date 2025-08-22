@@ -253,18 +253,22 @@
     animation: holographic-dots 8s ease-in-out infinite, move-horizontal 30s linear infinite, move-vertical 40s linear infinite reverse;
   }
 
-  /* Digital Grid Background */
-  @keyframes grid-pan {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 100% 100%; }
+  /* Digital Grid Background - Replaced with Flowing Particles */
+  @keyframes particles-flow-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+    25% { transform: translate(5vw, 10vh) scale(1.2); opacity: 0.3; }
+    50% { transform: translate(-10vw, -5vh) scale(0.9); opacity: 0.25; }
+    75% { transform: translate(10vw, -10vh) scale(1.1); opacity: 0.35; }
   }
-  @keyframes panel-fade {
-    0%, 100% { opacity: 0; transform: scale(0.95); }
-    20%, 80% { opacity: 0.2; transform: scale(1); }
+  @keyframes particles-flow-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+    25% { transform: translate(-8vw, -12vh) scale(1.3); opacity: 0.35; }
+    50% { transform: translate(12vw, 8vh) scale(0.8); opacity: 0.2; }
+    75% { transform: translate(-5vw, 15vh) scale(1.2); opacity: 0.4; }
   }
-  @keyframes panel-fade-2 {
-    0%, 100% { opacity: 0; }
-    30%, 70% { opacity: 0.15; }
+  @keyframes sparks-fade {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.3; }
   }
 
   .digital-grid-bg {
@@ -275,23 +279,25 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: 
-      /* Grid */
-      linear-gradient(to right, hsl(var(--primary) / 0.2) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--primary) / 0.2) 1px, transparent 1px);
-    background-size: 4rem 4rem;
-    animation: grid-pan 45s linear infinite;
-    animation-direction: alternate;
+    background-image:
+      /* Flowing Shapes */
+      radial-gradient(ellipse 50% 80% at 20% 25%, hsl(var(--accent) / 0.2), transparent 70%),
+      radial-gradient(ellipse 60% 70% at 80% 75%, hsl(var(--primary) / 0.2), transparent 70%),
+      radial-gradient(ellipse 40% 60% at 50% 50%, hsl(var(--chart-4) / 0.2), transparent 70%);
+    animation: particles-flow-1 20s ease-in-out infinite, particles-flow-2 25s ease-in-out infinite reverse;
   }
   .digital-grid-bg::after {
     content: '';
     position: absolute;
     inset: 0;
-    background-image:
-      /* Floating Panels */
-      radial-gradient(ellipse 50% 80% at 20% 25%, hsl(var(--accent) / 0.2), transparent),
-      radial-gradient(ellipse 50% 80% at 80% 75%, hsl(var(--primary) / 0.2), transparent);
-    animation: panel-fade 12s ease-in-out infinite, panel-fade-2 18s ease-in-out infinite reverse;
+     background-image:
+      /* Particle Sparks */
+      radial-gradient(circle at 15% 85%, hsl(var(--accent) / 0.5) 1px, transparent 2px),
+      radial-gradient(circle at 80% 20%, hsl(var(--primary) / 0.5) 1px, transparent 2px),
+      radial-gradient(circle at 40% 50%, hsl(var(--chart-5) / 0.5) 1px, transparent 2px),
+      radial-gradient(circle at 90% 90%, white 1px, transparent 2px);
+    background-size: 15rem 15rem, 20rem 20rem, 12rem 12rem, 18rem 18rem;
+    animation: move-horizontal 30s linear infinite alternate, move-vertical 40s linear infinite alternate, sparks-fade 8s ease-in-out infinite;
   }
   
   /* Radial Glow Background */
