@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import { useLanguage } from "@/hooks/use-language";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { portfolioData, socialLinks } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,13 +13,15 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import Link from "next/link";
-import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+import { MapPin, Mail, MessageCircle, Send } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function ContactSection() {
   const { language } = useLanguage();
   const { toast } = useToast();
   const contactContent = portfolioData[language].contact;
   const formContent = contactContent.form;
+  const { ref, isVisible } = useScrollAnimation();
 
   const directContact = [
     {
@@ -64,7 +67,11 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="text-foreground/90 bg-background/50 backdrop-blur-sm">
+    <section 
+      id="contact"
+      ref={ref}
+      className={cn("text-foreground/90 bg-background/50 backdrop-blur-sm scroll-fade-in", { "is-visible": isVisible })}
+    >
       <div className="container">
         <h2 className="text-3xl md:text-4xl font-bold font-headline text-center mb-12">{contactContent.title}</h2>
         <div className="grid md:grid-cols-2 gap-12 items-start">

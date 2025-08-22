@@ -1,15 +1,22 @@
 "use client"
 
 import { useLanguage } from "@/hooks/use-language";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { portfolioData } from "@/lib/data";
 import { GraduationCap } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function AboutSection() {
-  const { language, direction } = useLanguage();
+  const { language } = useLanguage();
   const aboutContent = portfolioData[language].about;
+  const { ref, isVisible } = useScrollAnimation();
   
   return (
-    <section id="about" className="overflow-hidden">
+    <section 
+      id="about" 
+      ref={ref}
+      className={cn("overflow-hidden scroll-fade-in", { "is-visible": isVisible })}
+    >
        <div className="section-bg" />
        <div className="container text-center">
         <h2 className="text-3xl font-bold font-headline mb-4">{aboutContent.title}</h2>

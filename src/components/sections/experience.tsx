@@ -1,17 +1,23 @@
 "use client"
 
 import { useLanguage } from "@/hooks/use-language";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { experiences, portfolioData } from "@/lib/data";
 import { Briefcase, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function ExperienceSection() {
-  const { language, direction } = useLanguage();
+  const { language } = useLanguage();
   const experienceContent = portfolioData[language].experience;
   const experienceList = experiences[language];
+  const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="experience" className="bg-background/50 backdrop-blur-sm">
+    <section 
+      id="experience"
+      ref={ref}
+      className={cn("bg-background/50 backdrop-blur-sm scroll-fade-in", { "is-visible": isVisible })}
+    >
       <div className="container">
         <div className="text-center mb-16">
             <h2 className="text-3xl font-bold font-headline mb-4 relative inline-block">

@@ -3,12 +3,14 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/hooks/use-language';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { portfolioData, projects as allProjects, projectCategories, folderLinks } from '@/lib/data';
 import type { Project } from '@/lib/types';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { ProjectCard } from '../project-card';
 import { ProjectModal } from '../project-modal';
+import { cn } from '@/lib/utils';
 
 type ProjectType = 'video' | 'photo';
 
@@ -16,6 +18,7 @@ export default function ProjectsSection() {
   const { language } = useLanguage();
   const projectsContent = portfolioData[language].projects;
   const categories = projectCategories[language];
+  const { ref, isVisible } = useScrollAnimation();
 
   const [activeTab, setActiveTab] = useState<ProjectType>('video');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -48,7 +51,11 @@ export default function ProjectsSection() {
   }, [activeTab, categories]);
 
   return (
-    <section id="projects" className="bg-background/50 backdrop-blur-sm">
+    <section 
+      id="projects"
+      ref={ref}
+      className={cn("bg-background/50 backdrop-blur-sm scroll-fade-in", { "is-visible": isVisible })}
+    >
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold font-headline mb-4">{projectsContent.title}</h2>

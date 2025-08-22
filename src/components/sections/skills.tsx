@@ -1,15 +1,22 @@
 "use client"
 
 import { useLanguage } from "@/hooks/use-language";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { portfolioData, skills } from "@/lib/data";
 import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 export default function SkillsSection() {
   const { language } = useLanguage();
   const skillsContent = portfolioData[language].skills;
+  const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="skills" className="py-16 md:py-24 bg-background/50 backdrop-blur-sm">
+    <section 
+      id="skills"
+      ref={ref}
+      className={cn("py-16 md:py-24 bg-background/50 backdrop-blur-sm scroll-fade-in", { "is-visible": isVisible })}
+    >
       <div className="container text-center">
         <h2 className="text-3xl font-bold font-headline mb-4 relative inline-block">
           {skillsContent.title}
