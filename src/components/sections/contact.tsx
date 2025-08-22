@@ -70,9 +70,10 @@ export default function ContactSection() {
     <section 
       id="contact"
       ref={ref}
-      className={cn("text-foreground/90 bg-background/50 backdrop-blur-sm scroll-fade-in", { "is-visible": isVisible })}
+      className={cn("text-foreground/90 scroll-fade-in", { "is-visible": isVisible })}
     >
-      <div className="container">
+      <div className="radial-glow-bg" />
+      <div className="container relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold font-headline text-center mb-12">{contactContent.title}</h2>
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="space-y-8">
