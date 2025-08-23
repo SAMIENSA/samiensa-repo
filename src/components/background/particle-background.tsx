@@ -116,7 +116,7 @@ export function ParticleBackground() {
 
   return (
     <div className="fixed inset-0 -z-10">
-       <div className="absolute inset-0 -z-20 bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--accent))] opacity-20 dark:opacity-30" />
+       <div className="absolute inset-0 -z-20 bg-gradient-to-br from-[#1a1a40] to-[#3a0ca3] opacity-80 dark:opacity-100" />
        <canvas ref={canvasRef} className="absolute inset-0 -z-10" />
     </div>
   );

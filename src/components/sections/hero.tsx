@@ -96,7 +96,7 @@ export default function HeroSection() {
           <div className="h-10 text-xl md:text-2xl font-semibold text-primary">
             <span className="font-headline">{heroContent.roles[currentRoleIndex]}</span>
           </div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg max-w-2xl mx-auto">
             {heroContent.bio}
           </p>
           <div className="flex justify-center gap-2 mb-4">
@@ -109,7 +109,7 @@ export default function HeroSection() {
             ))}
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild>
+            <Button size="lg" asChild className="btn-gradient">
               <Link href={cvLink[language]} target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-5 w-5" />
                 {heroContent.cta}

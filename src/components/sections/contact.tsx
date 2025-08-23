@@ -78,7 +78,7 @@ export default function ContactSection() {
         <h2 className="text-3xl md:text-4xl font-bold font-headline text-center mb-12">{contactContent.title}</h2>
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="space-y-8">
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg">
               {contactContent.description}
             </p>
             <div className="space-y-4">
@@ -114,7 +114,7 @@ export default function ContactSection() {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input placeholder={formContent.name} {...field} className="bg-muted/30 dark:bg-muted/10 border-0 h-12" />
+                        <Input placeholder={formContent.name} {...field} className="bg-background/10 border-border/50 h-12" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -126,7 +126,7 @@ export default function ContactSection() {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input placeholder={formContent.email} {...field} className="bg-muted/30 dark:bg-muted/10 border-0 h-12"/>
+                        <Input placeholder={formContent.email} {...field} className="bg-background/10 border-border/50 h-12"/>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -138,7 +138,7 @@ export default function ContactSection() {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input placeholder={formContent.phone} {...field} className="bg-muted/30 dark:bg-muted/10 border-0 h-12"/>
+                        <Input placeholder={formContent.phone} {...field} className="bg-background/10 border-border/50 h-12"/>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -150,13 +150,13 @@ export default function ContactSection() {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Textarea placeholder={formContent.details} {...field} rows={5} className="bg-muted/30 dark:bg-muted/10 border-0"/>
+                        <Textarea placeholder={formContent.details} {...field} rows={5} className="bg-background/10 border-border/50"/>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                <Button type="submit" size="lg" className="w-full">
+                <Button type="submit" size="lg" className="w-full btn-gradient">
                   {formContent.submit}
                 </Button>
               </form>
