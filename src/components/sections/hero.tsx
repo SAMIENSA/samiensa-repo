@@ -90,7 +90,7 @@ export default function HeroSection() {
         </div>
 
         <div className="space-y-6">
-           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight">
+           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight animated-text-glow">
             {heroContent.name}
           </h1>
           <div className="h-10 text-xl md:text-2xl font-semibold text-muted-foreground">
@@ -121,5 +121,3 @@ export default function HeroSection() {
     </section>
   );
 }
-
-    
