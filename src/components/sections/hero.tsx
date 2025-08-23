@@ -90,10 +90,10 @@ export default function HeroSection() {
         </div>
 
         <div className="space-y-6">
-           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight animated-text-glow">
+           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline tracking-tight">
             {heroContent.name}
           </h1>
-          <div className="h-10 text-xl md:text-2xl font-semibold text-primary">
+          <div className="h-10 text-xl md:text-2xl font-semibold text-muted-foreground">
             <span className="font-headline">{heroContent.roles[currentRoleIndex]}</span>
           </div>
           <p className="text-lg max-w-2xl mx-auto">
@@ -101,9 +101,9 @@ export default function HeroSection() {
           </p>
           <div className="flex justify-center gap-2 mb-4">
             {socialLinks.map((link) => (
-              <Button key={link.name} variant="outline" size="icon" asChild className="rounded-full border-2 border-primary/20 hover:bg-primary/10">
+              <Button key={link.name} variant="outline" size="icon" asChild className="rounded-full border-2 border-border hover:bg-primary/10">
                 <Link href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
-                  <link.icon className="h-5 w-5 text-primary" />
+                  <link.icon className="h-5 w-5 text-muted-foreground hover:text-primary" />
                 </Link>
               </Button>
             ))}
@@ -121,3 +121,5 @@ export default function HeroSection() {
     </section>
   );
 }
+
+    

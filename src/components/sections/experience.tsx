@@ -62,13 +62,13 @@ export default function ExperienceSection() {
                 >
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
                       <h3 className="font-headline text-xl font-bold text-primary">{exp.role}</h3>
-                      <p className="text-sm font-semibold bg-primary/10 px-3 py-1 rounded-full mt-2 sm:mt-0">{exp.period}</p>
+                      <p className="text-sm font-semibold bg-primary/10 text-primary px-3 py-1 rounded-full mt-2 sm:mt-0">{exp.period}</p>
                   </div>
-                    <p className="text-md font-semibold text-card-foreground">{exp.company}</p>
+                    <p className="text-md font-semibold text-muted-foreground">{exp.company}</p>
                     <ul className="space-y-2">
                       {exp.details.map((detail, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-accent mt-0.5 shrink-0" />
                           <span className="text-sm md:text-base">{detail}</span>
                         </li>
                       ))}
@@ -82,3 +82,5 @@ export default function ExperienceSection() {
     </section>
   );
 }
+
+    

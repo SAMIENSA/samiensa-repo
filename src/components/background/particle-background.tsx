@@ -77,7 +77,7 @@ export function ParticleBackground() {
                                + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
                 if (distance < (canvas.width / 8) * (canvas.height / 8)) { // Increased connection distance slightly
                     opacityValue = 1 - (distance / 25000); // Adjusted opacity calculation
-                    const lineColor = theme === 'dark' ? `rgba(255, 255, 255, ${opacityValue})` : `rgba(0, 0, 0, ${opacityValue})`;
+                    const lineColor = theme === 'dark' ? `rgba(154, 140, 186, ${opacityValue * 0.5})` : `rgba(0, 0, 0, ${opacityValue})`;
                     ctx.strokeStyle = lineColor;
                     ctx.lineWidth = 0.3; // Thinner lines
                     ctx.beginPath();
@@ -94,7 +94,7 @@ export function ParticleBackground() {
       ctx.clearRect(0, 0, innerWidth, innerHeight);
 
       // Set particle color based on theme
-      const particleColor = theme === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)';
+      const particleColor = theme === 'dark' ? 'rgba(245, 245, 245, 0.7)' : 'rgba(0, 0, 0, 0.7)';
       ctx.fillStyle = particleColor;
 
       for (const particle of particles) {
@@ -116,8 +116,10 @@ export function ParticleBackground() {
 
   return (
     <div className="fixed inset-0 -z-10">
-       <div className="absolute inset-0 -z-20 bg-gradient-to-br from-[#1a1a40] to-[#3a0ca3] opacity-80 dark:opacity-100" />
+       <div className="absolute inset-0 -z-20 bg-gradient-to-br from-[#1e1e2f] to-[#3a2e5f] dark:opacity-100" />
        <canvas ref={canvasRef} className="absolute inset-0 -z-10" />
     </div>
   );
 }
+
+    

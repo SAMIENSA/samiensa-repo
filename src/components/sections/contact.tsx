@@ -86,20 +86,20 @@ export default function ContactSection() {
                 <div key={index} className="flex items-center gap-4">
                   <item.icon className="w-6 h-6 text-primary" />
                   {item.href ? (
-                     <Link href={item.href} target="_blank" rel="noopener noreferrer" className="font-medium text-lg hover:text-primary transition-colors">
+                     <Link href={item.href} target="_blank" rel="noopener noreferrer" className="font-medium text-lg text-muted-foreground hover:text-primary transition-colors">
                       {item.text}
                      </Link>
                   ) : (
-                    <span className="font-medium text-lg">{item.text}</span>
+                    <span className="font-medium text-lg text-muted-foreground">{item.text}</span>
                   )}
                 </div>
               ))}
             </div>
             <div className="flex items-center gap-4 pt-4">
               {socialLinks.filter(link => ['Instagram', 'LinkedIn', 'Facebook', 'Telegram', 'WhatsApp'].includes(link.name)).map((link) => (
-                <Button key={link.name} variant="outline" size="icon" asChild className="rounded-full border-2 border-primary/20 hover:bg-primary/10">
+                <Button key={link.name} variant="outline" size="icon" asChild className="rounded-full border-2 border-border hover:bg-primary/10">
                   <Link href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
-                    <link.icon className="h-5 w-5 text-primary" />
+                    <link.icon className="h-5 w-5 text-muted-foreground hover:text-primary" />
                   </Link>
                 </Button>
               ))}
@@ -114,7 +114,7 @@ export default function ContactSection() {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input placeholder={formContent.name} {...field} className="bg-background/10 border-border/50 h-12" />
+                        <Input placeholder={formContent.name} {...field} className="bg-background/80 border-border/50 h-12" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -126,7 +126,7 @@ export default function ContactSection() {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input placeholder={formContent.email} {...field} className="bg-background/10 border-border/50 h-12"/>
+                        <Input placeholder={formContent.email} {...field} className="bg-background/80 border-border/50 h-12"/>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -138,7 +138,7 @@ export default function ContactSection() {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input placeholder={formContent.phone} {...field} className="bg-background/10 border-border/50 h-12"/>
+                        <Input placeholder={formContent.phone} {...field} className="bg-background/80 border-border/50 h-12"/>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -150,7 +150,7 @@ export default function ContactSection() {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Textarea placeholder={formContent.details} {...field} rows={5} className="bg-background/10 border-border/50"/>
+                        <Textarea placeholder={formContent.details} {...field} rows={5} className="bg-background/80 border-border/50"/>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -167,3 +167,5 @@ export default function ContactSection() {
     </section>
   );
 }
+
+    
